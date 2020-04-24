@@ -1,9 +1,9 @@
 @font-face {
   font-family: GT Walsheim Pro;
   src: local("GT Walsheim Pro Regular"), local("GTWalsheimProRegular"),
-    url(GTWalsheimProRegular.woff2) format("woff2"),
-    url(GTWalsheimProRegular.woff) format("woff"),
-    url(GTWalsheimProRegular.ttf) format("truetype");
+    url(font/GTWalsheimProRegular.woff2) format("woff2"),
+    url(font/GTWalsheimProRegular.woff) format("woff"),
+    url(font/GTWalsheimProRegular.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -11,9 +11,9 @@
 @font-face {
   font-family: GT Walsheim Pro;
   src: local("GT Walsheim Pro Bold"), local("GTWalsheimProBold"),
-    url(GTWalsheimProBold.woff2) format("woff2"),
-    url(GTWalsheimProBold.woff) format("woff"),
-    url(GTWalsheimProBold.ttf) format("truetype");
+    url(font/GTWalsheimProBold.woff2) format("woff2"),
+    url(font/GTWalsheimProBold.woff) format("woff"),
+    url(font/GTWalsheimProBold.ttf) format("truetype");
   font-weight: 700;
   font-style: normal;
 }
