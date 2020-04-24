@@ -1,8 +1,15 @@
 @use 'partials/fonts';
-@use 'partials/vars';
+@use 'partials/vars' as *;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+p,
+a {
+  font-family: $regular-font;
 }
