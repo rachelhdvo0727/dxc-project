@@ -1,0 +1,80 @@
+@use 'partials/vars';
+
+* {
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none;
+}
+
+#form-container {
+  background-color: black;
+  max-width: 350px;
+  width: 100%;
+}
+form {
+  background-color: vars.$dark-bg-color;
+  color: white;
+  font-family: vars.$font-family;
+}
+
+#form-container {
+  background-color: black;
+}
+
+label {
+  cursor: pointer;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+fieldset label,
+fieldset input {
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  display: block;
+}
+
+.invalid {
+  border: 2px solid red;
+}
+
+input + p {
+  display: none;
+}
+
+input.invalid + p {
+  display: block;
+}
+
+#consent {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 6px;
+  width: 6px;
+  height: 5px;
+  background-color: white;
+  display: grid;
+  position: relative;
+}
+
+#consent:checked::after {
+  content: "\2714";
+  position: absolute;
+  font-size: 14px;
+  color: #000000;
+  place-self: center;
+}
+#consent.invalid {
+  border: 2px solid red;
+}

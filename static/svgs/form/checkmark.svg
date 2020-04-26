@@ -1,0 +1,16 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 45">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <title>checkmark</title>
+  <g>
+    <rect class="cls-1" x="31.09" y="0.91" width="5.89" height="43.17" transform="translate(23.94 -17.03) rotate(42.21)"/>
+    <rect class="cls-1" x="11.65" y="18.78" width="5.89" height="22.5" transform="translate(46.64 39.4) rotate(132.21)"/>
+  </g>
+</svg>
