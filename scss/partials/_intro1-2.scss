@@ -31,9 +31,6 @@ button {
 body {
   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
-.hidden {
-  display: none;
-}
 article#intro1 {
   @include column-flex;
   button.readmore {

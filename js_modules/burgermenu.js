@@ -1,10 +1,12 @@
 import { gsap } from "gsap";
 export function burgermenuHandler() {
   console.log("burgermenu js");
-  let menulist = document.querySelector(".menulist");
-  const articlesBg = document.querySelectorAll("article");
 
-  document.querySelector("#burger_icon").addEventListener("click", (evt) => {
+  let menulist = document.querySelector(".menulist");
+  const bgElms = document.querySelectorAll("article, #logo");
+  const menuicon = document.querySelector("#burger_icon");
+
+  menuicon.addEventListener("click", (evt) => {
     menulist.classList.toggle("hidden");
     let menuHidden = document
       .querySelector(".menulist")
@@ -13,15 +15,16 @@ export function burgermenuHandler() {
       hideOverlay();
     } else {
       addOverlay();
+      disableScroll();
     }
   });
   function addOverlay() {
-    articlesBg.forEach((elm) => {
+    bgElms.forEach((elm) => {
       elm.classList.add("overlay");
     });
   }
   function hideOverlay() {
-    articlesBg.forEach((elm) => {
+    bgElms.forEach((elm) => {
       elm.classList.remove("overlay");
     });
   }

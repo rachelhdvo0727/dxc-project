@@ -1,5 +1,6 @@
 @use 'partials/fonts';
 @use 'partials/vars' as *;
+@use 'partials/intro1-2';
 @mixin column-flex {
   display: flex;
   flex-flow: column wrap;
@@ -58,6 +59,9 @@ header {
     color: $text-color;
     font-size: 3.8vw;
   }
+}
+.hidden {
+  display: none;
 }
 .overlay {
   filter: blur(3.6507298946380615px) brightness(97%);
