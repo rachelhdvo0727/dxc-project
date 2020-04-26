@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(min(100%, 350px), /* min value */ 1fr /* max value */)
+    minmax(min(100%, 200px), /* min value */ 1fr /* max value */)
   );
 }
 h1 {
@@ -34,7 +34,6 @@ body {
 article#intro1 {
   @include column-flex;
   button.readmore {
-    //align-self: flex-end;
     position: absolute;
     top: 168vw;
     right: 14vw;
@@ -108,11 +107,11 @@ article#intro2 {
     background-color: $bg-desktop-color;
   }
   section#introtext_1 {
-    position: absolute;
+    position: relative;
     height: 30vw;
     width: 40vw;
     left: 5vw;
-    top: 14vw;
+    top: 12vw;
     padding: 2vw;
     z-index: 999;
     h1 {
@@ -125,20 +124,21 @@ article#intro2 {
   }
   section#man-machine_container {
     z-index: 777;
-    position: absolute;
-    left: 19vw;
-    top: 7vw;
-    height: 45vw;
-    width: 45vw;
+    position: relative;
+    left: 17vw;
+    top: -29vw;
+    height: 48vw;
+    width: 48vw;
     background-image: url(/static/images/man-machine-bg.jpg);
     background-size: cover;
   }
   article#intro1 {
     .factors_container {
+      position: relative;
       height: 37vw;
       width: 30vw;
-      top: 5vw;
-      left: 54vw;
+      top: -76vw;
+      left: 55vw;
       .factors_img {
         height: 20.8vw;
         width: 20vw;
@@ -151,13 +151,13 @@ article#intro2 {
     }
   }
   article#intro2 {
-    margin-top: 52vw;
+    //margin-top: 52vw;
     background-size: 55%;
-    background-position: top left;
+    background-position: 0% 100%;
     section#introtext_2 {
       gap: 1.5vw;
-      margin-bottom: 10.5vw;
-      padding: 2vw;
+      margin: 16vw 9.5vw 6vw;
+      padding: 7vw 2vw 2vw;
       line-height: 2vw;
       p {
         font-size: 1.2vw;
@@ -167,6 +167,15 @@ article#intro2 {
         justify-content: center;
         padding-left: 2vw;
       }
+    }
+    .section_logo {
+      background-image: url(/static/svgs/dxc-reverse-logo.svg);
+      background-size: 100%;
+      position: relative;
+      height: 3.5vw;
+      width: 16vw;
+      top: 21vw;
+      left: 4.4vw;
     }
   }
 }
