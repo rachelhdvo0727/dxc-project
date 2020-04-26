@@ -1,19 +1,67 @@
-@use "partials/fonts";
-@use "partials/vars" as *;
-
+@use 'partials/fonts';
+@use 'partials/vars' as *;
+@mixin column-flex {
+  display: flex;
+  flex-flow: column wrap;
+}
+@mixin row-flex {
+  display: flex;
+  flex-flow: row wrap;
+}
 header {
   height: 10vw;
 }
-#menulist {
+#logo {
+  background-image: url(/static/svgs/dxc-logo-primary.svg);
+  background-size: 100%;
+  position: absolute;
+  height: 7vw;
+  width: 40vw;
+  left: 3vw;
+}
+#menu_container {
+  @include row-flex;
+  justify-content: flex-end;
+  margin: 4vw 3vw 3vw 3vw;
+  p.menu {
+    font-size: 3vw;
+    z-index: 9999;
+  }
+  #burger_icon {
+    @include column-flex;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 3vw;
+    z-index: 8888;
+    .bar {
+      height: 0.5vw;
+      width: 6vw;
+      background-color: $text-color;
+    }
+  }
+}
+.menulist {
   //TODO: hide on normal state
-  //display: block;
-  margin-left: 6vw;
+  background-color: $bg-color;
+  z-index: 7777;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 80%;
+  right: 0;
+  padding: 30vw 13vw;
+  line-height: 15vw;
+  li,
   a {
     text-decoration: none;
     color: $text-color;
+    font-size: 3.8vw;
   }
 }
-
+.overlay {
+  filter: blur(3.6507298946380615px) brightness(97%);
+}
 //Desktop
 
 @media only screen and (min-width: 1000px) {
