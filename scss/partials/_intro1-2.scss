@@ -107,11 +107,11 @@ article#intro2 {
     background-color: $bg-desktop-color;
   }
   section#introtext_1 {
-    position: relative;
+    position: absolute;
     height: 30vw;
     width: 40vw;
     left: 5vw;
-    top: 12vw;
+    top: 14vw;
     padding: 2vw;
     z-index: 999;
     h1 {
@@ -124,9 +124,9 @@ article#intro2 {
   }
   section#man-machine_container {
     z-index: 777;
-    position: relative;
+    position: absolute;
     left: 17vw;
-    top: -29vw;
+    top: 5vw;
     height: 48vw;
     width: 48vw;
     background-image: url(/static/images/man-machine-bg.jpg);
@@ -134,10 +134,10 @@ article#intro2 {
   }
   article#intro1 {
     .factors_container {
-      position: relative;
+      position: absolute;
       height: 37vw;
       width: 30vw;
-      top: -76vw;
+      top: 4vw;
       left: 55vw;
       .factors_img {
         height: 20.8vw;
@@ -151,7 +151,7 @@ article#intro2 {
     }
   }
   article#intro2 {
-    //margin-top: 52vw;
+    margin-top: 50vw;
     background-size: 55%;
     background-position: 0% 100%;
     section#introtext_2 {

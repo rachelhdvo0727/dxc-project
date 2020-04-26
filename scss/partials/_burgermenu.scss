@@ -50,7 +50,6 @@ header {
   }
 }
 .menulist {
-  //TODO: hide on normal state
   background-color: $bg-color;
   z-index: 7777;
   position: fixed;
@@ -77,7 +76,7 @@ header {
 //Desktop
 @media screen and (min-width: 1000px) {
   header {
-    height: 4vw;
+    height: unset;
     #logo {
       z-index: 888;
       // height: 2.8vw;
@@ -90,9 +89,9 @@ header {
       top: -1vw;
     }
     .menulist {
-      width: 30%;
+      width: 40%;
       line-height: 4vw;
-      padding: 13vw 7vw;
+      padding: 13vw 10vw;
       li,
       a {
         font-size: 1.5vw;
