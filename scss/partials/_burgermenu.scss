@@ -13,3 +13,11 @@ header {
     color: $text-color;
   }
 }
+
+//Desktop
+
+@media only screen and (min-width: 1000px) {
+  header {
+    height: 4vw;
+  }
+}

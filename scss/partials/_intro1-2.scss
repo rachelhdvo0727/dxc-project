@@ -4,6 +4,13 @@
   display: flex;
   flex-flow: column wrap;
 }
+@mixin flex-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 350px), /* min value */ 1fr /* max value */)
+  );
+}
 h1 {
   font-family: $bold-font;
 }
@@ -24,7 +31,6 @@ body {
 }
 article#intro1 {
   @include column-flex;
-  //justify-content: space-evenly;
   button.readmore {
     //align-self: flex-end;
     position: absolute;
@@ -69,8 +75,96 @@ section#introtext_1 {
   }
 }
 
-// article#intro2 {
-//   background-image: url(/static/images/man-machine2.jpg);
-//   background-size: cover;
-//   background-repeat: no-repeat;
-// }
+article#intro2 {
+  background-image: url(/static/images/man-machine-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  height: 100%;
+  margin-top: 49vw;
+  @include column-flex;
+  justify-content: space-around;
+  section#introtext_2 {
+    //align-self: center;
+    background-color: $bg-color;
+    @include flex-grid;
+    gap: 1vw;
+    padding: 6vw;
+    margin: 9vw 12vw 0 7vw;
+    line-height: 5.8vw;
+    .col3 > p {
+      font-weight: 700;
+      grid-column: 3/3;
+    }
+  }
+}
+
+//Desktop
+
+@media only screen and (min-width: 1000px) {
+  body {
+    background-color: $bg-desktop-color;
+  }
+  section#introtext_1 {
+    position: absolute;
+    height: 30vw;
+    width: 40vw;
+    left: 5vw;
+    top: 14vw;
+    padding: 2vw;
+    z-index: 999;
+    h1 {
+      font-size: 2.8vw;
+      margin-bottom: 3.5vw;
+    }
+    p {
+      font-size: 1.5vw;
+    }
+  }
+  section#man-machine_container {
+    z-index: 777;
+    position: absolute;
+    left: 19vw;
+    top: 7vw;
+    height: 45vw;
+    width: 45vw;
+    background-image: url(/static/images/man-machine-bg.jpg);
+    background-size: cover;
+  }
+  article#intro1 {
+    .factors_container {
+      height: 37vw;
+      width: 30vw;
+      top: 5vw;
+      left: 54vw;
+      .factors_img {
+        height: 20.8vw;
+        width: 20vw;
+      }
+    }
+    button.readmore {
+      font-size: 1.2vw;
+      top: 45vw;
+      right: 9vw;
+    }
+  }
+  article#intro2 {
+    margin-top: 52vw;
+    background-size: 55%;
+    background-position: top left;
+    section#introtext_2 {
+      gap: 1.5vw;
+      margin-bottom: 10.5vw;
+      padding: 2vw;
+      line-height: 2vw;
+      p {
+        font-size: 1.2vw;
+      }
+      .col3 {
+        @include column-flex;
+        justify-content: center;
+        padding-left: 2vw;
+      }
+    }
+  }
+}
