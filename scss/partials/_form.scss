@@ -3,67 +3,67 @@
 * {
   box-sizing: border-box;
 }
-
-.hide {
-  display: none;
-}
-
-#form-container {
-  background-color: black;
-  max-width: 350px;
-  width: 100%;
-  button.back {
-    color: vars.$bg-color;
-    margin-left: 1vw;
-  }
-  button#submit,
-  button.next {
-    background-color: vars.$highlight-color;
-    text-transform: uppercase;
-    text-align: center;
-    width: 10vw;
-    height: 1.5vw;
-    padding: 0.8vw;
-    align-self: center;
-  }
-}
 form {
+  //child elm
+  //align-self: center;
   background-color: vars.$dark-bg-color;
   color: white;
   font-family: vars.$regular-font;
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
+  justify-content: stretch;
 }
-
-#form-container {
-  background-color: black;
-}
-
 label {
   cursor: pointer;
+  margin-bottom: 2vw;
 }
-
+input {
+  height: 7vw;
+}
 fieldset {
   display: flex;
   flex-direction: column;
+  margin: 3vw;
   border: none;
 }
-
 fieldset label,
 fieldset input {
   font-weight: normal;
   display: flex;
   flex-direction: column;
 }
-
 button {
   all: initial;
-  display: block;
+  // display: block;
   cursor: pointer;
   font-family: vars.$bold-font;
 }
-
+.hide {
+  display: none;
+}
+#form-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  background-color: black;
+  max-width: 350px;
+  width: 100%;
+  height: 110vw; //mobile size
+  button.back {
+    color: vars.$bg-color;
+    padding: 4vw 0 0 1vw;
+  }
+  button#submit,
+  button.next {
+    background-color: vars.$highlight-color;
+    text-transform: uppercase;
+    text-align: center;
+    width: 58vw;
+    height: 7vw;
+    padding: 0.8vw;
+    align-self: center;
+  }
+}
 .invalid {
   border: 2px solid vars.$highlight-color;
 }
@@ -75,9 +75,8 @@ input + p {
 
 input.invalid + p {
   display: block;
-  font-size: 1vw;
+  font-size: 2.8vw;
 }
-
 #consent {
   appearance: none;
   -webkit-appearance: none;
@@ -89,7 +88,6 @@ input.invalid + p {
   display: grid;
   position: relative;
 }
-
 #consent:checked::after {
   content: "\2714";
   position: absolute;
@@ -99,4 +97,29 @@ input.invalid + p {
 }
 #consent.invalid {
   border: 2px solid red;
+}
+@media only screen and (min-width: 1000px) {
+  #form-container {
+    height: 35vw;
+    button.next,
+    button#submit {
+      height: 1.5vw;
+      width: 13vw;
+    }
+    button.back {
+      padding: 2vw 0 0 1vw;
+    }
+  }
+  fieldset {
+    margin: 1vw;
+  }
+  label {
+    margin-bottom: 1vw;
+  }
+  input {
+    height: 2vw;
+  }
+  input.invalid + p {
+    font-size: 0.8vw;
+  }
 }

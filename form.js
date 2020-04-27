@@ -1,11 +1,9 @@
-import { endpoint, apiKey } from "./settings";
+import { endpoint, apiKey, form, company, consent } from "./settings";
 require("@babel/polyfill");
 let step = 1;
-const form = document.querySelector("form");
 window.form = form;
 // const personal = document.querySelector("#personal input");
-const company = document.querySelector("#aboutCompany input");
-const consent = document.querySelector("#consent input");
+
 const elements = form.elements;
 window.elements = elements;
 console.log(elements.consent.value);
@@ -51,15 +49,12 @@ function checkFieldsets() {
     }
   }
 }
-
+//TODO: process bar
 function setUp(data) {
   data.forEach(showCountry);
   document.querySelector("form").setAttribute("novalidate", true);
-  document.querySelector(".back").addEventListener("click", () => {
-    startAgain();
-    goBack();
-    console.log(step);
-  });
+  //hide back button at step 1
+  document.querySelector(".back").classList.add("hide");
   document.querySelector(".next").addEventListener("click", (e) => {
     e.preventDefault();
     console.log("steps" + step);
@@ -73,6 +68,11 @@ function setUp(data) {
       }
     });
     checkFieldsets();
+  });
+  document.querySelector(".back").addEventListener("click", () => {
+    startAgain();
+    goBack();
+    console.log(step);
   });
 }
 
@@ -103,7 +103,7 @@ function doesEmailExist(data) {
     checkStep2();
   }
 }
-
+//TODO: checking country input
 function checkStep2() {
   if (
     form.elements.company.checkValidity() &&
@@ -165,6 +165,7 @@ function submit(e) {
       country: form.elements.country.value,
       workemail: form.elements.email.value,
     });
+    showDoneProcess();
   } else {
     showError();
   }
@@ -194,12 +195,17 @@ function postUser(data) {
     .then((res) => res.json())
     .then((data) => console.log(data));
 }
-
+//TODO: authentication
+function showDoneProcess() {
+  console.log("done sign up");
+  //hide back button at step 1
+  document.querySelector(".back").classList.add("hide");
+}
 function goToNext() {
+  //show back button on step 2 (after clicking next)
+  document.querySelector(".back").classList.remove("hide");
   step++;
-
   const formElements = form.querySelectorAll("input");
-
   document.querySelector(".next").removeEventListener("click", goToNext);
   console.log("next");
   console.log(step);
@@ -259,6 +265,8 @@ function startAgain() {
   //show step 1
   document.querySelector("#personal").classList.remove("hide");
   document.querySelector(".next").classList.remove("hide");
+  //show back button on step 2 (after clicking next)
+  document.querySelector(".back").classList.remove("hide");
   //hide step 2 and 3
   document.querySelector("#aboutCompany").classList.add("hide");
   document.querySelector("#consent-label").classList.add("hide");
