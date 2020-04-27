@@ -8,7 +8,7 @@
   </head>
   <body>
     <article id="form-container">
-      <button>back</button>
+      <button class="back">←</button>
       <form>
         <fieldset id="personal" name="personal">
           <label>
@@ -27,6 +27,7 @@
             <p>Please provide your job title</p>
           </label>
         </fieldset>
+
         <fieldset id="aboutCompany" class="hide">
           <label>
             Company
@@ -43,13 +44,16 @@
             <p id="emailError"></p>
           </label>
         </fieldset>
+        
         <label id="consent-label" class="hide">
           <input id="consent" name="consent" type="checkbox" required />
           Yes, you can e-mail me and process my data for marketing purposes.
           <p>Please check this box if you want to proceed</p>
         </label>
         <button class="next">Next</button>
-        <button id="submit" class="hide" type="submit" value="Submit">Submit</button>
+        <button id="submit" class="hide" type="submit" value="Submit">
+          Submit
+        </button>
       </form>
     </article>
 

@@ -14,11 +14,16 @@ window.addEventListener("load", start);
 
 function start() {
   getJson(setUp);
+  document.querySelector(".back").classList.add("hide");
 }
 function checkFieldsets() {
   console.log(step);
   if (step == 1) {
-    if (form.elements.firstname.checkValidity() && form.elements.lastname.checkValidity() && form.elements.jobtitle.checkValidity()) {
+    if (
+      form.elements.firstname.checkValidity() &&
+      form.elements.lastname.checkValidity() &&
+      form.elements.jobtitle.checkValidity()
+    ) {
       console.log("valid");
       console.log(personal.checkValidity());
       goToNext();
@@ -27,7 +32,6 @@ function checkFieldsets() {
     }
   } else if (step == 2) {
     getEmail(form.elements.email.value, doesEmailExist);
-
     // if (getEmail(form.elements.email.value, doesEmailExist)) {
     //   showError();
     //   console.log("error");
@@ -47,6 +51,7 @@ function checkFieldsets() {
       showError();
     }
   }
+
   // if() {
   //   showError();
   // }
@@ -56,6 +61,7 @@ function setUp(data) {
   data.forEach(showCountry);
 
   document.querySelector("form").setAttribute("novalidate", true);
+  document.querySelector(".back").addEventListener("click", goBack);
   document.querySelector(".next").addEventListener("click", (e) => {
     e.preventDefault();
     console.log("steps" + step);
@@ -68,7 +74,7 @@ function setUp(data) {
         el.classList.remove("invalid");
       }
     });
-
+    document.querySelector(".back").classList.remove("hide");
     checkFieldsets();
   });
 }
@@ -94,19 +100,25 @@ function doesEmailExist(data) {
   if (data.length > 0) {
     console.log("error");
     document.querySelector("#email").classList.add("invalid");
-    document.querySelector("#emailError").textContent = "This e-mail address has already been used";
+    document.querySelector("#emailError").textContent =
+      "This e-mail address has already been used";
   } else {
     checkStep2();
   }
 }
 
 function checkStep2() {
-  if (form.elements.company.checkValidity() && form.elements.country.checkValidity() && form.elements.email.checkValidity()) {
+  if (
+    form.elements.company.checkValidity() &&
+    form.elements.country.checkValidity() &&
+    form.elements.email.checkValidity()
+  ) {
     console.log("valid");
     console.log(company.checkValidity());
     goToNext();
   } else {
-    document.querySelector("#emailError").textContent = "Please provide a real e-mail address";
+    document.querySelector("#emailError").textContent =
+      "Please provide a real e-mail address";
     showError();
   }
 }
@@ -209,5 +221,45 @@ function goToNext() {
     document.querySelector(".next").classList.add("hide");
     document.querySelector("#submit").classList.remove("hide");
     document.querySelector("#submit").addEventListener("click", submit);
+  }
+}
+function goBack() {
+  document.querySelector(".back").removeEventListener("click", goBack);
+  step--;
+  if (step === 3) {
+    console.log(step);
+    //click back and hide step 3 and 1
+    document.querySelector("#consent-label").classList.add("hide");
+    document.querySelector("#submit").classList.add("hide");
+    document.querySelector("#personal").classList.add("hide");
+  }
+  if (step === 2) {
+    console.log(step);
+    //click back and show step 2
+    document.querySelector("#aboutCompany").classList.remove("hide");
+    document.querySelector(".next").classList.remove("hide");
+    document.querySelector(".back").classList.remove("hide");
+    //hide step 3
+    document.querySelector("#consent-label").classList.add("hide");
+    document.querySelector("#submit").classList.add("hide");
+    //click back on step 2
+    document.querySelector(".back").addEventListener("click", () => {
+      step = 1;
+      if (step === 1) {
+        console.log(step);
+        startAgain();
+      }
+    });
+  }
+  function startAgain() {
+    console.log("startAgain");
+    //hide back button
+    document.querySelector(".back").classList.add("hide");
+    //show step 1
+    document.querySelector("#personal").classList.remove("hide");
+    document.querySelector(".next").classList.remove("hide");
+    //hide step 2
+    document.querySelector("#aboutCompany").classList.add("hide");
+    document.querySelector("#submit").classList.add("hide");
   }
 }
