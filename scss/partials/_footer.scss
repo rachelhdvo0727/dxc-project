@@ -1,0 +1,54 @@
+@use 'partials/vars';
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  font-family: vars.$regular-font;
+  font-weight: 100;
+  line-height: 1.5;
+  flex-wrap: wrap;
+  align-items: center;
+
+  p {
+    min-width: 30%;
+    margin: 1rem;
+  }
+
+  nav {
+    min-width: 30%;
+    text-align: right;
+    margin: 1rem;
+
+    ul {
+      all: initial;
+    }
+    li {
+      all: initial;
+      font-family: vars.$regular-font;
+    }
+
+    li:not(:last-child):after {
+      content: " |";
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: #534e05;
+  }
+
+  #linkToDxc {
+    min-width: 30%;
+    margin: 1rem;
+    text-align: center;
+    // width: 200px;
+  }
+}
