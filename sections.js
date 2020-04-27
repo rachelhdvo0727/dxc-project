@@ -5,6 +5,7 @@ window.addEventListener("load", init);
 const endpoint = "https://frontendspring20-67be.restdb.io/rest/dxc-technology";
 const apiKey = "5e95767d436377171a0c2333";
 
+console.log("id");
 function init() {
   getData();
   console.log("hi");
@@ -35,14 +36,17 @@ function showBenefits(post) {
   copy.querySelector(".benefit").textContent = post.benefits;
   img.setAttribute("src", post.benefits_img);
   copy.querySelector(".benefit").addEventListener("click", () => {
-    fetch(endpoint + `?id=${copy.id}`, {
-      method: "get",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        "x-apikey": apiKey,
-        "cache-control": "no-cache",
-      },
-    })
+    fetch(
+      `https://frontendspring20-67be.restdb.io/rest/dxc-technology/${post._id}`,
+      {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "x-apikey": apiKey,
+          "cache-control": "no-cache",
+        },
+      }
+    )
       .then((res) => res.json())
       .then(openModal);
   });
@@ -54,6 +58,7 @@ function openModal(modal) {
   document.querySelector("#modal-container").classList.remove("hide");
   document.querySelector(".benefits-description").textContent =
     modal.benefits_description;
+  document.querySelector(".close").addEventListener("click", closeModal);
   console.log(modal);
 }
 function closeModal() {
