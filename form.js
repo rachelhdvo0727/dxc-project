@@ -54,8 +54,12 @@ function checkFieldsets() {
 
 function setUp(data) {
   data.forEach(showCountry);
-
   document.querySelector("form").setAttribute("novalidate", true);
+  document.querySelector(".back").addEventListener("click", () => {
+    startAgain();
+    goBack();
+    console.log(step);
+  });
   document.querySelector(".next").addEventListener("click", (e) => {
     e.preventDefault();
     console.log("steps" + step);
@@ -70,7 +74,6 @@ function setUp(data) {
     });
     checkFieldsets();
   });
-  document.querySelector(".back").addEventListener("click", goBack);
 }
 
 function showCountry(data) {
@@ -194,7 +197,7 @@ function postUser(data) {
 
 function goToNext() {
   step++;
-  document.querySelector(".back").addEventListener("click", goBack);
+
   const formElements = form.querySelectorAll("input");
 
   document.querySelector(".next").removeEventListener("click", goToNext);
