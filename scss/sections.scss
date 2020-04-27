@@ -6,7 +6,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-/*----section styling----*/
+/*----------section styling-----------*/
+main {
+  scroll-snap-type: y mandatory;
+}
 section {
   background-color: $bg-color;
   display: grid;
@@ -56,6 +59,21 @@ section {
   background-position: 8vw 2vw;
   background-size: 320px;
   background-color: thistle;
+}
+.section1-top-left {
+  height: 50vh;
+}
+.section1-bottom-left {
+  height: 50vh;
+}
+.section1-bottom-right {
+  height: 90vh;
+  margin-top: -40vh;
+  background-color: salmon;
+  display: inline-block;
+}
+.section1-top-right {
+  height: 10vh;
 }
 
 .section2-top-left {
@@ -107,7 +125,7 @@ section {
 }
 .section5-bottom-right {
   height: 90vh;
-  margin-top: -40vh;
+  margin-top: -45vh;
 }
 .section5-top-right {
   height: 10vh;
@@ -126,7 +144,7 @@ section {
 .section6-top-right {
   height: 10vh;
 }
-/*--making it responsive--*/
+/*-------making it responsive-----------*/
 @media only screen and (max-width: 650px) {
   section {
     display: grid;
@@ -142,9 +160,30 @@ section {
   .section2-bottom-right,
   .section3-bottom-right,
   .section4-bottom-right,
-  .section5-bottom-right,
-  .section6-bottom-right {
+  .section6-bottom-right,
+  .section5-bottom-right {
     margin-top: -20vh;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .section2-bottom-right,
+  .section3-bottom-right,
+  .section4-bottom-right,
+  .section6-bottom-right,
+  .section5-bottom-right {
+    margin-top: -30vh;
+  }
+}
+@media only screen and (max-width: 450px) {
+  section {
+    height: 130vh;
+  }
+  .section2-bottom-right,
+  .section3-bottom-right,
+  .section4-bottom-right,
+  .section6-bottom-right,
+  .section5-bottom-right {
+    margin-top: -40vh;
   }
 }
 
@@ -163,6 +202,14 @@ p {
   color: $text-color;
   font-size: 1em;
 }
+h3 {
+  font-family: GT Walsheim Pro;
+  font-weight: 700;
+  font-style: normal;
+  color: $text-color;
+  font-size: 1.5em;
+}
+.section1-top-left h2,
 .section2-top-left h2,
 .section3-top-left h2,
 .section4-top-left h2,
@@ -176,6 +223,60 @@ p {
 .section3-bottom-right p,
 .section4-bottom-right p,
 .section5-bottom-right p,
-.section6-bottom-right p {
-  padding: 1vw 6vw 1vw 5vw;
+.section6-bottom-right p,
+.section1-bottom-left p {
+  padding: 1vw 5vw 1vw 8vw;
+}
+/*----------modal styling for sections--------*/
+#modal-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: grey;
+  opacity: 0.5;
+  z-index: 100;
+}
+#modal-bg.hide {
+  display: none;
+}
+#modal-container {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+#modal-container.hide {
+  display: none;
+}
+#modal-container #modal {
+  width: 50%;
+  height: 60vh;
+  background-color: $text-color;
+}
+#modal-container #modal p {
+  color: $highlight-color;
+}
+#modal-container #modal .modal-text {
+  margin: 5vh;
+}
+#modal-container #modal .close {
+  margin: 1em;
+  font-size: 1em;
+  color: $highlight-color;
+  background: opacity($color: #00000000);
+  border: none;
+}
+#modal-container #modal .close:hover {
+  opacity: 0.8;
+}
+/*--------template styling------*/
+.benefit-img img {
+  width: 5%;
 }

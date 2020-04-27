@@ -7,9 +7,35 @@
     <link rel="stylesheet" href="scss/sections.scss" />
   </head>
   <body>
+    <main>
+      <div id="modal-bg" class="hide"></div>
+      <div id="modal-container" class="hide">
+        <div id="modal">
+          <button class="close">X</button>
+          <div class="modal-text">
+         <p class="benefits-description">Description here</p>
+        </div>
+          </div>
+        </div>
     <section class="section-1">
-      <div class="section1-left"></div>
-      <div class="section1-right"></div>
+      <div class="section1-top-left">
+        <h2>Business <br>Benefits</h2>
+      </div>
+      <div class="section1-top-right"></div>
+      <div class="section1-bottom-left">
+        <p>Early discussions about IIoT primarily focused on the technology and what it could
+do, rather than on the business value IIoT could deliver. This is not surprising; IoT
+technologies’ cool factor has clearly captured people’s attention. More recently, the
+conversations have shifted to the variety of business benefits IIoT can deliver.</p>
+      </div>
+      <div class="section1-bottom-right">
+        <template id="benefitTemplate">
+          <div class="benefit-img">
+            <img src="static/svgs/business-model-innovation.svg">
+          </div>
+          <h3 class="benefit">Business model innovation</h3>
+         </template>
+      </div>
     </section>
     <section class="section-2">
       <div class="section2-top-left">
@@ -76,7 +102,8 @@
         <h2>Operating <br />Model Changes</h2>
       </div>
       <div class="section4-top-right"></div>
-      <div class="section4-bottom-left"></div>
+      <div class="section4-bottom-left">
+      </div>
       <div class="section4-bottom-right">
         <p>
           Many IoT industry participants talk about the convergence of IT and
@@ -109,7 +136,9 @@
         <h2>Capability <br> Uplift</h2>
       </div>
       <div class="section5-top-right"></div>
-      <div class="section5-bottom-left"></div>
+      <div class="section5-bottom-left">
+       
+      </div>
       <div class="section5-bottom-right">
         <p>
           With changes to the technology landscape and operating model, employees need to
@@ -164,5 +193,7 @@ design” is becoming a key decision criterion as companies choose technologies.
         </p>
       </div>
     </section>
+    </main>
+    <script src="sections.js"></script>
   </body>
 </html>
