@@ -10,9 +10,9 @@ img {
 }
 
 #splash_img {
-  width: 50vw;
+  width: 800px;
   position: absolute;
-  left: 130px;
+  left: 100px;
   top: 30px;
 }
 
@@ -20,7 +20,7 @@ img {
   width: 200px;
   position: absolute;
   top: 70px;
-  left: 100px;
+  left: 80px;
 }
 
 #scroll_box {
@@ -29,10 +29,10 @@ img {
   width: 40vw;
   height: 400px;
   overflow: scroll;
-  padding: 30px;
+  padding: 40px;
   position: absolute;
   top: 150px;
-  left: 100px;
+  left: 80px;
 }
 
 #scroll_box::-webkit-scrollbar {
@@ -43,7 +43,7 @@ img {
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 100px;
+  left: 80px;
   top: 270px;
 }
 
@@ -57,4 +57,44 @@ img {
 
 .filled {
   background-color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+  #splash_img {
+    width: 700px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #splash_img {
+    width: 100vw;
+    left: 0;
+    top: 0;
+  }
+
+  #landing_logo {
+    top: 10px;
+    left: 10px;
+  }
+
+  #scroll_box {
+    width: 100vw;
+    left: 0;
+    top: 300px;
+  }
+
+  #dot_container {
+    left: 5px;
+    top: 450px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #scroll_box {
+    top: 200px;
+  }
+
+  #dot_container {
+    top: 350px;
+  }
 }
