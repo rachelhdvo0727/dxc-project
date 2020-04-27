@@ -2,13 +2,13 @@
 
 window.addEventListener("load", init);
 
-const endpoint = "https://frontendspring20-67be.restdb.io/rest/dxc-technology";
+const endpoint =
+  "https://frontendspring20-67be.restdb.io/rest/dxc-technology?max=6";
 const apiKey = "5e95767d436377171a0c2333";
 
-console.log("id");
 function init() {
   getData();
-  console.log("hi");
+  console.log("function started");
 }
 
 function getData() {
@@ -34,7 +34,10 @@ function showBenefits(post) {
   const copy = template.cloneNode(true);
   const img = copy.querySelector(".benefit-img img");
   copy.querySelector(".benefit").textContent = post.benefits;
-  img.setAttribute("src", post.benefits_img);
+  img.setAttribute(
+    "src",
+    `https://frontendspring20-67be.restdb.io/media/${post.benefits_img}`
+  );
   copy.querySelector(".benefit").addEventListener("click", () => {
     fetch(
       `https://frontendspring20-67be.restdb.io/rest/dxc-technology/${post._id}`,
@@ -49,6 +52,7 @@ function showBenefits(post) {
     )
       .then((res) => res.json())
       .then(openModal);
+    console.log(post);
   });
   document.querySelector(".section1-bottom-right").appendChild(copy);
 }
