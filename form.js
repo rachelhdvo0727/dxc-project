@@ -14,7 +14,6 @@ window.addEventListener("load", start);
 
 function start() {
   getJson(setUp);
-  document.querySelector(".back").classList.add("hide");
 }
 function checkFieldsets() {
   console.log(step);
@@ -51,17 +50,12 @@ function checkFieldsets() {
       showError();
     }
   }
-
-  // if() {
-  //   showError();
-  // }
 }
 
 function setUp(data) {
   data.forEach(showCountry);
 
   document.querySelector("form").setAttribute("novalidate", true);
-  document.querySelector(".back").addEventListener("click", goBack);
   document.querySelector(".next").addEventListener("click", (e) => {
     e.preventDefault();
     console.log("steps" + step);
@@ -74,9 +68,9 @@ function setUp(data) {
         el.classList.remove("invalid");
       }
     });
-    document.querySelector(".back").classList.remove("hide");
     checkFieldsets();
   });
+  document.querySelector(".back").addEventListener("click", goBack);
 }
 
 function showCountry(data) {
@@ -200,6 +194,7 @@ function postUser(data) {
 
 function goToNext() {
   step++;
+  document.querySelector(".back").addEventListener("click", goBack);
   const formElements = form.querySelectorAll("input");
 
   document.querySelector(".next").removeEventListener("click", goToNext);
@@ -228,6 +223,10 @@ function goBack() {
   step--;
   if (step === 3) {
     console.log(step);
+    //show step 2
+    document.querySelector("#aboutCompany").classList.remove("hide");
+    document.querySelector(".next").classList.remove("hide");
+    //document.querySelector(".back").classList.remove("hide");
     //click back and hide step 3 and 1
     document.querySelector("#consent-label").classList.add("hide");
     document.querySelector("#submit").classList.add("hide");
@@ -235,14 +234,14 @@ function goBack() {
   }
   if (step === 2) {
     console.log(step);
-    //click back and show step 2
+    //show step 2
     document.querySelector("#aboutCompany").classList.remove("hide");
     document.querySelector(".next").classList.remove("hide");
-    document.querySelector(".back").classList.remove("hide");
-    //hide step 3
+    //hide step 3 and step 1
     document.querySelector("#consent-label").classList.add("hide");
     document.querySelector("#submit").classList.add("hide");
-    //click back on step 2
+    document.querySelector("#personal").classList.add("hide");
+    //while at step 2, click back
     document.querySelector(".back").addEventListener("click", () => {
       step = 1;
       if (step === 1) {
@@ -251,15 +250,14 @@ function goBack() {
       }
     });
   }
-  function startAgain() {
-    console.log("startAgain");
-    //hide back button
-    document.querySelector(".back").classList.add("hide");
-    //show step 1
-    document.querySelector("#personal").classList.remove("hide");
-    document.querySelector(".next").classList.remove("hide");
-    //hide step 2
-    document.querySelector("#aboutCompany").classList.add("hide");
-    document.querySelector("#submit").classList.add("hide");
-  }
+}
+function startAgain() {
+  console.log("startAgain");
+  //show step 1
+  document.querySelector("#personal").classList.remove("hide");
+  document.querySelector(".next").classList.remove("hide");
+  //hide step 2 and 3
+  document.querySelector("#aboutCompany").classList.add("hide");
+  document.querySelector("#consent-label").classList.add("hide");
+  document.querySelector("#submit").classList.add("hide");
 }
