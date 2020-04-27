@@ -1,0 +1,85 @@
+@use 'partials/vars';
+
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 1rem auto;
+  }
+}
+
+h2,
+h3 {
+  font-family: vars.$regular-font;
+}
+
+p {
+  font-family: vars.$regular-font;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+}
+
+#author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+  padding-top: 5rem;
+  h2 {
+    width: clamp(40%, 380px, 100%);
+    margin-bottom: 2rem;
+    font-size: 5rem;
+  }
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: clamp(40%, 660px, 100%);
+  }
+  p {
+    width: clamp(64%, 350px, 100%);
+  }
+
+  img {
+    margin-right: 2rem;
+    max-width: 172px;
+    max-width: 200px;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+#dxc {
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+  padding: 3rem;
+  @media (max-width: 350px) {
+    font-size: 2rem;
+  }
+  background-color: #000000;
+  h3 {
+    width: 45%;
+    font-size: 3rem;
+    padding-bottom: 1rem;
+    @media (max-width: 350px) {
+      font-size: 2rem;
+    }
+  }
+  p {
+    width: clamp(40%, 500px, 100%);
+  }
+}
+
+a {
+  color: vars.$highlight-color;
+}
+
+a:visited {
+  color: #a79f2e;
+}
