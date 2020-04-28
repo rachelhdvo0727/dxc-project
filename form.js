@@ -134,11 +134,23 @@ async function getJson(callback) {
 
 function doesEmailExist(data) {
   console.log(data);
-  if (data.length > 0) {
-    console.log("error");
-    document.querySelector("#email").classList.add("invalid");
-    document.querySelector("#emailError").textContent = "This e-mail address has already been used";
+
+  if (getCountry(form.elements.country.value) == false || data.length > 0) {
+    console.log("Is it working?");
+
+    if (!getCountry(form.elements.country.value)) {
+      console.log("country");
+      document.querySelector("#country").classList.add("invalid");
+      document.querySelector("#countryError").textContent = "Please write the country in English or select from the list";
+    }
+    if (data.length > 0) {
+      console.log("email");
+      console.log("error");
+      document.querySelector("#email").classList.add("invalid");
+      document.querySelector("#emailError").textContent = "This e-mail address has already been used";
+    }
   } else {
+    console.log("check step 2");
     checkStep2();
   }
 }
@@ -152,6 +164,19 @@ function checkStep2() {
     document.querySelector("#emailError").textContent = "Please provide a real e-mail address";
     showError();
   }
+}
+
+function getCountry(country) {
+  const array = [];
+  document.querySelectorAll("#countries option").forEach((elm) => {
+    array.push(elm.value);
+  });
+
+  return array.includes(country);
+  //   return false;
+  // } else {
+  //   return true;
+  // }
 }
 
 function getEmail(email, callback) {
