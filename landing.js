@@ -2,6 +2,7 @@ window.addEventListener("DOMContentLoaded", start);
 
 function start() {
   document.querySelector("#scroll_box").addEventListener("scroll", scrolling);
+  document.querySelector("button").addEventListener("click", showQuotes);
 }
 
 function scrolling() {
@@ -26,4 +27,11 @@ function scrolling() {
     document.querySelector("#dot2").classList.remove("filled");
     document.querySelector("#dot3").classList.add("filled");
   }
+}
+
+function showQuotes() {
+  document.querySelector("#intro_txt").classList.add("hide");
+  document.querySelector("#quotes").classList.remove("hide");
+  document.querySelector("#quotes").classList.add("slide_in");
+  document.querySelector("#dot_container").classList.remove("hidden");
 }
