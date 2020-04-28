@@ -51,7 +51,7 @@ export function signinForm() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        showWelcome();
+        showWelcome(data.first_name, data.last_name, data.email);
       });
   }
   function setupForm() {
@@ -71,21 +71,19 @@ export function signinForm() {
       });
     });
   }
-  function showWelcome() {
+  function showWelcome(first, last, mail) {
     console.log("welcome");
     welcomeSec.classList.remove("hide");
     signinSec.classList.add("hide");
     document.querySelector(".back").classList.add("hide");
     document.querySelector("#submit").classList.add("hide");
-    setTimeout(redirectToAssetPage, 2000);
+    setTimeout(redirectToAssetPage(first, last, mail), 2000);
   }
-  function redirectToAssetPage() {
+  function redirectToAssetPage(first, last, mail) {
     console.log("redirect");
-    //TODO: turn this on with correct html file 👇🏽
-    //location.href = "https://rhdvo.dk";
-    localStorage.setItem(
-      "user",
-      JSON.stringify(["Rachel", "Vo", "rach@gmail.com"])
-    );
+    let userStr = JSON.stringify([first, last, mail]);
+    //TODO: link to the correct asset.html file 👇🏽
+    //document.location.href = "asset.html";
+    localStorage.setItem("user", userStr);
   }
 }
