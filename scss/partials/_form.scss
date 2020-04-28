@@ -36,7 +36,6 @@ button {
   all: initial;
   // display: block;
   cursor: pointer;
-  font-family: vars.$bold-font;
 }
 .hide {
   display: none;
@@ -51,7 +50,9 @@ button {
   height: 110vw; //mobile size
   button.back {
     color: vars.$bg-color;
+    font-family: vars.$regular-font;
     padding: 4vw 0 0 1vw;
+    font-weight: 400;
   }
   button#submit,
   button.next,

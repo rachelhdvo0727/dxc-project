@@ -6,6 +6,7 @@ import {
   consent,
   yellowChecked,
 } from "./settings";
+import { gsap } from "gsap";
 require("@babel/polyfill");
 let step = 1;
 window.form = form;
@@ -56,7 +57,7 @@ function checkFieldsets() {
     }
   }
 }
-//TODO: process bar
+
 function setUp(data) {
   data.forEach(showCountry);
   document.querySelector("#done_signup").classList.add("hide");
@@ -110,7 +111,6 @@ function doesEmailExist(data) {
     checkStep2();
   }
 }
-//TODO: checking country input
 function checkStep2() {
   if (
     form.elements.company.checkValidity() &&
@@ -203,7 +203,7 @@ function postUser(data) {
     .then((res) => res.json())
     .then((data) => console.log(data));
 }
-//TODO: authentication
+
 function showDoneProcess() {
   console.log("done sign up");
   //hide back button at step 1
@@ -212,8 +212,12 @@ function showDoneProcess() {
   document.querySelector("#submit").classList.add("hide");
   document.querySelector("#done_signup").classList.remove("hide");
   document.querySelector(".takemethere").classList.remove("hide");
+  document.querySelector(".takemethere").addEventListener("click", () => {
+    console.log("go to Asset page");
+  });
   loadSvg();
   useSvg();
+  animateCheckSvg();
 }
 async function loadSvg() {
   const response = await fetch(yellowChecked);
@@ -228,6 +232,22 @@ function useSvg() {
   checkSvg.setAttribute("x", "80px");
   checkSvg.setAttribute("y", "130px");
   document.querySelector("#checked-svg").appendChild(checkSvg);
+}
+function animateCheckSvg() {
+  let checksvg = document.querySelector("#checked-svg > use:nth-child(1)");
+  // shakeTl.to(checksvg, {
+  //   x: "+=5",
+  // });
+  gsap.from(checksvg, {
+    duration: 1,
+    opacity: 0,
+    ease: "power4.out",
+    x: 50,
+    scale: 0.5,
+  });
+  // shakeTl.to(checksvg, {
+  //   x: "-=5",
+  // });
 }
 function goToNext() {
   step++;
