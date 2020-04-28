@@ -64,6 +64,7 @@ button {
     height: 7vw;
     padding: 0.8vw;
     align-self: center;
+    font-weight: 700;
   }
 }
 .invalid {
@@ -111,6 +112,7 @@ input.invalid + p {
   p.alldone_text {
     color: vars.$bg-color;
     font-family: vars.$regular-font;
+    place-self: center;
   }
 }
 
@@ -118,7 +120,8 @@ input.invalid + p {
   #form-container {
     height: 35vw;
     button.next,
-    button#submit {
+    button#submit,
+    button.takemethere {
       height: 1.5vw;
       width: 13vw;
     }

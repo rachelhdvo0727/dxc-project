@@ -209,7 +209,9 @@ function showDoneProcess() {
   //hide back button at step 1
   document.querySelector(".back").classList.add("hide");
   document.querySelector("#consent-label").classList.add("hide");
+  document.querySelector("#submit").classList.add("hide");
   document.querySelector("#done_signup").classList.remove("hide");
+  document.querySelector(".takemethere").classList.remove("hide");
   loadSvg();
   useSvg();
 }
@@ -221,11 +223,11 @@ async function loadSvg() {
 function useSvg() {
   let checkSvg = document.createElementNS("http://www.w3.org/2000/svg", "use");
   checkSvg.setAttribute("href", "#yellowCheckedDone");
-
   checkSvg.setAttribute("height", "150px");
   checkSvg.setAttribute("width", "150px");
+  checkSvg.setAttribute("x", "80px");
+  checkSvg.setAttribute("y", "130px");
   document.querySelector("#checked-svg").appendChild(checkSvg);
-  console.log(checkSvg);
 }
 function goToNext() {
   step++;
