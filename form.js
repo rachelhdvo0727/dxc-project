@@ -84,12 +84,12 @@ function checkFieldsets() {
   } else if (step == 2) {
     getEmail(form.elements.email.value, doesEmailExist);
   } else if (step == 3) {
-    if (consent.checkValidity()) {
-      console.log("valid");
-      document.querySelector("#submit").addEventListener("click", submit);
-    } else {
-      showError();
-    }
+    // if (consent.checkValidity()) {
+    //   console.log("valid");
+    document.querySelector("#submit").addEventListener("click", submit);
+    // } else {
+    //   showError();
+    // }
   }
 }
 //TODO: process bar
@@ -135,7 +135,7 @@ async function getJson(callback) {
 function doesEmailExist(data) {
   console.log(data);
 
-  if (getCountry(form.elements.country.value) == false || data.length > 0) {
+  if (getCountry(form.elements.country.value) == false || data.length > 0 || !form.elements.company.checkValidity() || !form.elements.email.checkValidity()) {
     console.log("Is it working?");
 
     if (!getCountry(form.elements.country.value)) {
@@ -149,22 +149,26 @@ function doesEmailExist(data) {
       document.querySelector("#email").classList.add("invalid");
       document.querySelector("#emailError").textContent = "This e-mail address has already been used";
     }
+
+    if (!form.elements.email.checkValidity()) {
+      document.querySelector("#emailError").textContent = "Please provide a real e-mail address";
+      showError();
+    }
   } else {
-    console.log("check step 2");
-    checkStep2();
+    goToNext();
   }
 }
 //TODO: checking country input
-function checkStep2() {
-  if (form.elements.company.checkValidity() && form.elements.country.checkValidity() && form.elements.email.checkValidity()) {
-    console.log("valid");
-    console.log(company.checkValidity());
-    goToNext();
-  } else {
-    document.querySelector("#emailError").textContent = "Please provide a real e-mail address";
-    showError();
-  }
-}
+// function checkStep2() {
+//   if (form.elements.company.checkValidity() && form.elements.country.checkValidity() && form.elements.email.checkValidity()) {
+//     console.log("valid");
+//     console.log(company.checkValidity());
+//     goToNext();
+//   } else {
+//     document.querySelector("#emailError").textContent = "Please provide a real e-mail address";
+//     showError();
+//   }
+// }
 
 function getCountry(country) {
   const array = [];
