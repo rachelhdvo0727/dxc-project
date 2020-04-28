@@ -1,0 +1,128 @@
+@use 'partials/vars';
+
+form {
+  //child elm
+  //align-self: center;
+  background-color: vars.$dark-bg-color;
+  color: white;
+  font-family: vars.$regular-font;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+label {
+  cursor: pointer;
+  margin-bottom: 2vw;
+}
+input {
+  height: 7vw;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+  margin: 3vw;
+  border: none;
+}
+fieldset label,
+fieldset input {
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+}
+button {
+  all: initial;
+  // display: block;
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+#form-container {
+  display: flex;
+  flex-flow: column wrap;
+  // justify-content: space-around;
+  background-color: black;
+  max-width: 350px;
+  width: 100%;
+  margin: 3vw;
+  padding: 1vw;
+  height: 110vw; //mobile size
+  button.back {
+    color: vars.$bg-color;
+    font-family: vars.$regular-font;
+    padding: 4vw 0 0 1vw;
+    font-weight: 400;
+  }
+  button#submit {
+    font-family: vars.$bold-font;
+    background-color: vars.$highlight-color;
+    text-transform: uppercase;
+    text-align: center;
+    width: 58vw;
+    height: 7vw;
+    padding: 0.8vw;
+    align-self: center;
+    font-weight: 700;
+  }
+}
+.invalid {
+  border: 2px solid vars.$highlight-color;
+}
+
+input + p {
+  display: none;
+  color: vars.$highlight-color;
+}
+
+input.invalid + p {
+  display: block;
+  color: vars.$highlight-color;
+  font-size: 2.8vw;
+}
+#welcomeback {
+  // visibility: hidden;
+  place-self: center;
+  //margin: 26vw 0 0 9vw;
+  // display: flex;
+  // flex-flow: column wrap;
+  // justify-content: center;
+  p.welcomeback_text {
+    color: vars.$bg-color;
+    font-family: vars.$regular-font;
+    font-size: 8vw;
+    margin-top: 43vw;
+    place-self: center;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #form-container {
+    height: 35vw;
+    button#submit {
+      height: 1.5vw;
+      width: 13vw;
+    }
+    button.back {
+      padding: 2vw 0 0 1vw;
+    }
+  }
+  #welcomeback {
+    p.welcomeback_text {
+      margin-top: 14vw;
+      font-size: 2.5vw;
+    }
+  }
+
+  fieldset {
+    margin: 1vw;
+  }
+  label {
+    margin-bottom: 1vw;
+  }
+  input {
+    height: 2vw;
+  }
+  input.invalid + p {
+    font-size: 0.8vw;
+  }
+}

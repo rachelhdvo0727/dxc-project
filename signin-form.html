@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/scss/styles.scss" />
+    <title>Sign In</title>
+  </head>
+  <body>
+    <article id="form-container">
+      <button class="back">◀︎ Back</button>
+      <form data-state="post">
+        <fieldset id="signin">
+          <label for="firstname"
+            >First name
+            <input type="text" name="firstname" id="firstname" required />
+            <p>Please check your first name</p>
+          </label>
+          <label for="lastname"
+            >Last name
+            <input type="text" name="lastname" id="lastname" required />
+            <p>Please check your last name</p></label
+          >
+          <label for="email"
+            >Email<input type="email" name="email" id="email" required />
+            <p>Please check your email again</p>
+          </label>
+        </fieldset>
+
+        <!-- Done Sign-up process -->
+        <fieldset id="welcomeback" class="hide">
+          <p class="welcomeback_text">Welcome back!</p>
+        </fieldset>
+
+        <button id="submit" value="Submit" type="submit">Sign in</button>
+      </form>
+    </article>
+    <script src="signin-form.js"></script>
+  </body>
+</html>
