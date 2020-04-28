@@ -172,7 +172,6 @@ function submit(e) {
       country: form.elements.country.value,
       workemail: form.elements.email.value,
     });
-    loadSvg();
     showDoneProcess();
   } else {
     showError();
