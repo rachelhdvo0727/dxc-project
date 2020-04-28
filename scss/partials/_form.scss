@@ -11,7 +11,7 @@ form {
   font-family: vars.$regular-font;
   display: flex;
   flex-flow: column wrap;
-  justify-content: stretch;
+  justify-content: center;
 }
 label {
   cursor: pointer;
@@ -44,7 +44,7 @@ button {
 #form-container {
   display: flex;
   flex-flow: column wrap;
-  justify-content: space-around;
+  // justify-content: space-around;
   background-color: black;
   max-width: 350px;
   width: 100%;

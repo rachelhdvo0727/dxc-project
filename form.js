@@ -53,8 +53,6 @@ function checkFieldsets() {
 function setUp(data) {
   data.forEach(showCountry);
   document.querySelector("form").setAttribute("novalidate", true);
-  //hide back button at step 1
-  document.querySelector(".back").classList.add("hide");
   document.querySelector(".next").addEventListener("click", (e) => {
     e.preventDefault();
     console.log("steps" + step);
@@ -202,8 +200,6 @@ function showDoneProcess() {
   document.querySelector(".back").classList.add("hide");
 }
 function goToNext() {
-  //show back button on step 2 (after clicking next)
-  document.querySelector(".back").classList.remove("hide");
   step++;
   const formElements = form.querySelectorAll("input");
   document.querySelector(".next").removeEventListener("click", goToNext);
@@ -235,7 +231,6 @@ function goBack() {
     //show step 2
     document.querySelector("#aboutCompany").classList.remove("hide");
     document.querySelector(".next").classList.remove("hide");
-    //document.querySelector(".back").classList.remove("hide");
     //click back and hide step 3 and 1
     document.querySelector("#consent-label").classList.add("hide");
     document.querySelector("#submit").classList.add("hide");
@@ -265,8 +260,6 @@ function startAgain() {
   //show step 1
   document.querySelector("#personal").classList.remove("hide");
   document.querySelector(".next").classList.remove("hide");
-  //show back button on step 2 (after clicking next)
-  document.querySelector(".back").classList.remove("hide");
   //hide step 2 and 3
   document.querySelector("#aboutCompany").classList.add("hide");
   document.querySelector("#consent-label").classList.add("hide");
