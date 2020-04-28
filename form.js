@@ -1,6 +1,6 @@
 import { endpoint, apiKey, form, company, consent } from "./settings";
 require("@babel/polyfill");
-let step = 1;
+// let step = 1;
 window.form = form;
 // const personal = document.querySelector("#personal input");
 
@@ -11,16 +11,70 @@ console.log(elements.consent.value);
 window.addEventListener("load", start);
 
 function start() {
+  getSvg("svgs/form/progress.svg", svgProgress);
+}
+
+function svgProgress(svg) {
+  document.querySelector("#progress").innerHTML = svg;
+  jsonSetUp();
+}
+
+function jsonSetUp() {
   getJson(setUp);
 }
-function checkFieldsets() {
+
+function progressbar() {
+  let step = document.querySelector("#main-form").dataset.step;
   console.log(step);
   if (step == 1) {
-    if (
-      form.elements.firstname.checkValidity() &&
-      form.elements.lastname.checkValidity() &&
-      form.elements.jobtitle.checkValidity()
-    ) {
+    document.querySelector("#Layer_1 > circle.st1").setAttribute("r", "40.7");
+    document.querySelector("#Layer_1 > circle.st1").style.fill = "#ffed00";
+    document.querySelector("#Layer_1 > circle:nth-child(5)").style.fill = "#818284";
+
+    document.querySelector("#Layer_1 > circle:nth-child(5)").setAttribute("r", "35.9");
+    document.querySelector("#Layer_1 > circle:nth-child(10)").setAttribute("r", "35.9");
+
+    document.querySelector("#nmb1").classList.remove("st3");
+    document.querySelector("#nmb2").classList.add("st3");
+    document.querySelector("#nmb3").classList.add("st3");
+    document.querySelector("#check1").classList.add("st3");
+
+    document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke = "#818284";
+  }
+  if (step == 2) {
+    document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke = "#ffed00";
+    document.querySelector("#Layer_1 > line:nth-child(3)").style.stroke = "#818284";
+    document.querySelector("#Layer_1 > circle:nth-child(10)").style.fill = "#818284";
+
+    document.querySelector("#Layer_1 > circle:nth-child(5)").setAttribute("r", "40.7");
+    document.querySelector("#Layer_1 > circle:nth-child(5)").style.fill = "#ffed00";
+    document.querySelector("#nmb1").classList.add("st3");
+    document.querySelector("#nmb2").classList.remove("st3");
+    document.querySelector("#nmb3").classList.add("st3");
+    document.querySelector("#check1").classList.remove("st3");
+    document.querySelector("#check2").classList.add("st3");
+    document.querySelector("#check3").classList.add("st3");
+
+    // document.querySelector("#Layer_1 > circle.st1").fill = "red";
+  }
+
+  if (step == 3) {
+    document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke = "#ffed00";
+    document.querySelector("#Layer_1 > line:nth-child(3)").style.stroke = "#ffed00";
+
+    document.querySelector("#Layer_1 > circle:nth-child(10)").setAttribute("r", "40.7");
+    document.querySelector("#Layer_1 > circle:nth-child(10)").style.fill = "#ffed00";
+
+    document.querySelector("#nmb2").classList.add("st3");
+    document.querySelector("#nmb3").classList.remove("st3");
+    document.querySelector("#check2").classList.remove("st3");
+  }
+}
+
+function checkFieldsets() {
+  let step = document.querySelector("#main-form").dataset.step;
+  if (step == 1) {
+    if (form.elements.firstname.checkValidity() && form.elements.lastname.checkValidity() && form.elements.jobtitle.checkValidity()) {
       console.log("valid");
       console.log(personal.checkValidity());
       goToNext();
@@ -29,20 +83,9 @@ function checkFieldsets() {
     }
   } else if (step == 2) {
     getEmail(form.elements.email.value, doesEmailExist);
-    // if (getEmail(form.elements.email.value, doesEmailExist)) {
-    //   showError();
-    //   console.log("error");
-    // } // } else if (form.elements.company.checkValidity() && form.elements.country.checkValidity() && form.elements.email.checkValidity()) {
-    //   console.log("valid");
-    //   console.log(company.checkValidity());
-    //   goToNext();
-    // } else {
-    //   showError();
-    // }
   } else if (step == 3) {
     if (consent.checkValidity()) {
       console.log("valid");
-      console.log(company.checkValidity());
       document.querySelector("#submit").addEventListener("click", submit);
     } else {
       showError();
@@ -55,7 +98,7 @@ function setUp(data) {
   document.querySelector("form").setAttribute("novalidate", true);
   document.querySelector(".next").addEventListener("click", (e) => {
     e.preventDefault();
-    console.log("steps" + step);
+    // console.log("steps" + step);
     console.log("submitted");
     const formElements = form.querySelectorAll("input");
 
@@ -70,7 +113,6 @@ function setUp(data) {
   document.querySelector(".back").addEventListener("click", () => {
     startAgain();
     goBack();
-    console.log(step);
   });
 }
 
@@ -95,25 +137,19 @@ function doesEmailExist(data) {
   if (data.length > 0) {
     console.log("error");
     document.querySelector("#email").classList.add("invalid");
-    document.querySelector("#emailError").textContent =
-      "This e-mail address has already been used";
+    document.querySelector("#emailError").textContent = "This e-mail address has already been used";
   } else {
     checkStep2();
   }
 }
 //TODO: checking country input
 function checkStep2() {
-  if (
-    form.elements.company.checkValidity() &&
-    form.elements.country.checkValidity() &&
-    form.elements.email.checkValidity()
-  ) {
+  if (form.elements.company.checkValidity() && form.elements.country.checkValidity() && form.elements.email.checkValidity()) {
     console.log("valid");
     console.log(company.checkValidity());
     goToNext();
   } else {
-    document.querySelector("#emailError").textContent =
-      "Please provide a real e-mail address";
+    document.querySelector("#emailError").textContent = "Please provide a real e-mail address";
     showError();
   }
 }
@@ -152,6 +188,7 @@ function getEmail(email, callback) {
 
 function submit(e) {
   console.log("submit");
+  // document.querySelector("#check3").classList.remove("st3");
   e.preventDefault();
   if (form.checkValidity()) {
     console.log("ready");
@@ -200,11 +237,20 @@ function showDoneProcess() {
   document.querySelector(".back").classList.add("hide");
 }
 function goToNext() {
-  step++;
+  let getStep = document.querySelector("#main-form").dataset.step;
+  let step = parseInt(getStep);
+  console.log(step);
+  if (step == 3) {
+    step = 3;
+  } else {
+    step++;
+  }
+  document.querySelector("#main-form").dataset.step = step.toString();
   const formElements = form.querySelectorAll("input");
   document.querySelector(".next").removeEventListener("click", goToNext);
   console.log("next");
   console.log(step);
+  progressbar();
   if (step == 2) {
     document.querySelector("#personal").classList.add("hide");
     document.querySelector("#aboutCompany").classList.remove("hide");
@@ -225,7 +271,12 @@ function goToNext() {
 }
 function goBack() {
   document.querySelector(".back").removeEventListener("click", goBack);
+  let getStep = document.querySelector("#main-form").dataset.step;
+  let step = parseInt(getStep);
   step--;
+  document.querySelector("#main-form").dataset.step = step.toString();
+  progressbar();
+  console.log(step);
   if (step === 3) {
     console.log(step);
     //show step 2
@@ -264,4 +315,10 @@ function startAgain() {
   document.querySelector("#aboutCompany").classList.add("hide");
   document.querySelector("#consent-label").classList.add("hide");
   document.querySelector("#submit").classList.add("hide");
+}
+
+async function getSvg(filename, callback) {
+  let response = await fetch(filename);
+  let mySvgData = await response.text();
+  callback(mySvgData);
 }
