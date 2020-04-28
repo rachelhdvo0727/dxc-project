@@ -1,4 +1,11 @@
-import { endpoint, apiKey, form, company, consent } from "./settings";
+import {
+  endpoint,
+  apiKey,
+  form,
+  company,
+  consent,
+  yellowChecked,
+} from "./settings";
 require("@babel/polyfill");
 let step = 1;
 window.form = form;
@@ -52,6 +59,8 @@ function checkFieldsets() {
 //TODO: process bar
 function setUp(data) {
   data.forEach(showCountry);
+  document.querySelector("#done_signup").classList.add("hide");
+  document.querySelector(".takemethere").classList.add("hide");
   document.querySelector("form").setAttribute("novalidate", true);
   document.querySelector(".next").addEventListener("click", (e) => {
     e.preventDefault();
@@ -163,6 +172,7 @@ function submit(e) {
       country: form.elements.country.value,
       workemail: form.elements.email.value,
     });
+    loadSvg();
     showDoneProcess();
   } else {
     showError();
@@ -198,6 +208,24 @@ function showDoneProcess() {
   console.log("done sign up");
   //hide back button at step 1
   document.querySelector(".back").classList.add("hide");
+  document.querySelector("#consent-label").classList.add("hide");
+  document.querySelector("#done_signup").classList.remove("hide");
+  loadSvg();
+  useSvg();
+}
+async function loadSvg() {
+  const response = await fetch(yellowChecked);
+  const mySVG = await response.text();
+  document.querySelector(".svg").innerHTML = mySVG;
+}
+function useSvg() {
+  let checkSvg = document.createElementNS("http://www.w3.org/2000/svg", "use");
+  checkSvg.setAttribute("href", "#yellowCheckedDone");
+
+  checkSvg.setAttribute("height", "150px");
+  checkSvg.setAttribute("width", "150px");
+  document.querySelector("#checked-svg").appendChild(checkSvg);
+  console.log(checkSvg);
 }
 function goToNext() {
   step++;
@@ -207,6 +235,7 @@ function goToNext() {
   console.log(step);
   if (step == 2) {
     document.querySelector("#personal").classList.add("hide");
+    document.querySelector("#done_signup").classList.add("hide");
     document.querySelector("#aboutCompany").classList.remove("hide");
     formElements.forEach((el) => {
       if (!el.checkValidity()) {
@@ -260,8 +289,9 @@ function startAgain() {
   //show step 1
   document.querySelector("#personal").classList.remove("hide");
   document.querySelector(".next").classList.remove("hide");
-  //hide step 2 and 3
+  //hide step 2, 3 and 4
   document.querySelector("#aboutCompany").classList.add("hide");
   document.querySelector("#consent-label").classList.add("hide");
   document.querySelector("#submit").classList.add("hide");
+  document.querySelector("#done_signup").classList.add("hide");
 }

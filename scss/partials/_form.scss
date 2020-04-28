@@ -54,7 +54,9 @@ button {
     padding: 4vw 0 0 1vw;
   }
   button#submit,
-  button.next {
+  button.next,
+  button.takemethere {
+    font-family: vars.$bold-font;
     background-color: vars.$highlight-color;
     text-transform: uppercase;
     text-align: center;
@@ -98,6 +100,20 @@ input.invalid + p {
 #consent.invalid {
   border: 2px solid red;
 }
+
+#done_signup {
+  // visibility: hidden;
+  place-self: center;
+  //margin: 26vw 0 0 9vw;
+  // display: flex;
+  // flex-flow: column wrap;
+  // justify-content: center;
+  p.alldone_text {
+    color: vars.$bg-color;
+    font-family: vars.$regular-font;
+  }
+}
+
 @media only screen and (min-width: 1000px) {
   #form-container {
     height: 35vw;
