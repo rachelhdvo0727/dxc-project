@@ -1,0 +1,124 @@
+@use 'partials/fonts';
+@use 'partials/vars' as *;
+@use 'partials/intro1-2';
+
+@mixin column-flex {
+  display: flex;
+  flex-flow: column wrap;
+}
+@mixin row-flex {
+  display: flex;
+  flex-flow: row wrap;
+}
+header {
+  height: 10vw;
+}
+#logo {
+  background-image: url(/static/svgs/dxc-reverse-logo.svg);
+  background-size: 100%;
+  position: absolute;
+  height: 7.5vw;
+  width: 35vw;
+  left: 3vw;
+  top: 3vw;
+}
+#menu {
+  position: fixed;
+  right: 0;
+  z-index: 10000;
+}
+#menu_container {
+  @include row-flex;
+  justify-content: flex-end;
+  margin: 4vw 3vw 3vw 3vw;
+  p.menu {
+    font-size: 3vw;
+    z-index: 9999;
+  }
+  #burger_icon {
+    @include column-flex;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 3vw;
+    z-index: 8888;
+    .bar {
+      height: 0.4vw;
+      width: 6vw;
+      background-color: $text-color;
+      transition: 0.5s ease;
+    }
+  }
+}
+
+.change .b1 {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+.change .b2 {
+  opacity: 0;
+}
+.change .b3 {
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+.menulist {
+  background-color: $bg-color;
+  z-index: 7777;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 80%;
+  right: 0;
+  padding: 30vw 13vw;
+  line-height: 15vw;
+  li,
+  a {
+    text-decoration: none;
+    color: $text-color;
+    font-size: 3.8vw;
+  }
+}
+.hidden {
+  display: none;
+}
+.overlay {
+  filter: blur(3.6507298946380615px) brightness(97%);
+}
+
+//Desktop
+@media screen and (min-width: 1000px) {
+  header {
+    height: unset;
+    #logo {
+      z-index: 888;
+      // height: 2.8vw;
+      height: 3.5vw;
+      width: 16vw;
+      top: 7vw;
+      left: 5vw;
+    }
+    #menu {
+      top: -1vw;
+    }
+    .menulist {
+      width: 40%;
+      line-height: 4vw;
+      padding: 13vw 10vw;
+      li,
+      a {
+        font-size: 1.5vw;
+      }
+    }
+  }
+  #menu_container {
+    p.menu {
+      font-size: 1vw;
+    }
+    #burger_icon {
+      margin-left: 1.8vw;
+      .bar {
+        height: 0.1vw;
+        width: 2vw;
+      }
+    }
+  }
+}

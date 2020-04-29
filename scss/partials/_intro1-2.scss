@@ -1,0 +1,181 @@
+@use 'partials/fonts';
+@use 'partials/vars' as *;
+
+@mixin column-flex {
+  display: flex;
+  flex-flow: column wrap;
+}
+@mixin row-flex {
+  display: flex;
+  flex-flow: row wrap;
+}
+@mixin grid-3-col {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 200px), /* min value */ 1fr /* max value */)
+  );
+}
+h1 {
+  font-family: $bold-font;
+}
+p,
+a,
+ol {
+  font-family: $regular-font;
+}
+button {
+  all: initial;
+  font-family: $bold-font;
+}
+body {
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+article#intro1 {
+  @include column-flex;
+  button.readmore {
+    position: absolute;
+    top: 168vw;
+    right: 14vw;
+    padding-left: 0;
+    font-size: 4vw;
+  }
+}
+section#introtext_1 {
+  background-color: $text-color;
+  @include column-flex;
+  padding: 5vw 7vw;
+  height: 117vw;
+  h1,
+  p {
+    color: $bg-color;
+    font-size: 5vw;
+  }
+  h1 {
+    margin-bottom: 12vw;
+    font-size: 6vw;
+  }
+}
+.factors_container {
+  // padding: 5vw;
+  margin: 6vw 10vw;
+  position: absolute;
+  top: 87vw;
+  left: 4vw;
+  height: 70vw;
+  width: 70vw;
+  background-color: $bg-color;
+  @include column-flex;
+  justify-content: space-around;
+  .factors_img {
+    align-self: center;
+    background: url(/static/svgs/iot-diamond-form.svg) 100%;
+    background-size: 100%;
+    height: 62vw;
+    width: 60vw;
+  }
+}
+
+article#intro2 {
+  background-image: url(/static/images/man-machine-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  height: 100%;
+  margin-top: 49vw;
+  @include column-flex;
+  justify-content: space-around;
+  section#introtext_2 {
+    //align-self: center;
+    background-color: $bg-color;
+    @include grid-3-col;
+    gap: 1vw;
+    padding: 6vw;
+    margin: 9vw 12vw 0 7vw;
+    line-height: 5.8vw;
+    .col3 > p {
+      font-weight: 700;
+      grid-column: 3/3;
+    }
+  }
+}
+
+//Desktop
+
+@media only screen and (min-width: 1000px) {
+  body {
+    background-color: $bg-desktop-color;
+  }
+  section#introtext_1 {
+    position: absolute;
+    height: 30vw;
+    width: 40vw;
+    left: 5vw;
+    top: 14vw;
+    padding: 2vw;
+    z-index: 999;
+    h1 {
+      font-size: 2.8vw;
+      margin-bottom: 3.5vw;
+    }
+    p {
+      font-size: 1.5vw;
+    }
+  }
+  section#man-machine_container {
+    z-index: 777;
+    position: absolute;
+    left: 17vw;
+    top: 5vw;
+    height: 48vw;
+    width: 48vw;
+    background-image: url(/static/images/man-machine-bg.jpg);
+    background-size: cover;
+  }
+  article#intro1 {
+    .factors_container {
+      position: absolute;
+      height: 37vw;
+      width: 30vw;
+      top: 4vw;
+      left: 55vw;
+      .factors_img {
+        height: 20.8vw;
+        width: 20vw;
+      }
+    }
+    button.readmore {
+      font-size: 1.2vw;
+      top: 45vw;
+      right: 9vw;
+    }
+  }
+  article#intro2 {
+    margin-top: 50vw;
+    background-size: 55%;
+    background-position: 0% 100%;
+    section#introtext_2 {
+      gap: 1.5vw;
+      margin: 16vw 9.5vw 6vw;
+      padding: 7vw 2vw 2vw;
+      line-height: 2vw;
+      p {
+        font-size: 1.2vw;
+      }
+      .col3 {
+        @include column-flex;
+        justify-content: center;
+        padding-left: 2vw;
+      }
+    }
+    .section_logo {
+      background-image: url(/static/svgs/dxc-reverse-logo.svg);
+      background-size: 100%;
+      position: relative;
+      height: 3.5vw;
+      width: 16vw;
+      top: 21vw;
+      left: 4.4vw;
+    }
+  }
+}
