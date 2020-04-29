@@ -1,7 +1,7 @@
 import {
   endpoint2,
   apiKey2,
-  form,
+  form2,
   formElms,
   elms,
   signinSec,
@@ -11,7 +11,7 @@ import { gsap } from "gsap";
 require("@babel/polyfill");
 
 export function signinForm() {
-  form.setAttribute("novalidate", true);
+  form2.setAttribute("novalidate", true);
   setupForm();
   document.querySelector("#submit").addEventListener("click", (evt) => {
     evt.preventDefault();
@@ -20,7 +20,7 @@ export function signinForm() {
 
   function checkInputsValue() {
     let validForm = true;
-    if (form.checkValidity() && validForm) {
+    if (form2.checkValidity() && validForm) {
       postInfo({
         first_name: elms.firstname.value,
         last_name: elms.lastname.value,

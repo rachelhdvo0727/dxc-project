@@ -1,12 +1,8 @@
-import { endpoint1, apiKey1, form, company, consent } from "./settings";
+import { endpoint1, apiKey1, form } from "./settings";
 require("@babel/polyfill");
 // let step = 1;
-window.form = form;
 // const personal = document.querySelector("#personal input");
 
-const elements = form.elements;
-window.elements = elements;
-console.log(elements.consent.value);
 export function signupForm() {
   startForm();
   function startForm() {
