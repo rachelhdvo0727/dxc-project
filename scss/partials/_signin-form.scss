@@ -1,15 +1,4 @@
 @use 'partials/vars';
-
-// form {
-//   //child elm
-//   //align-self: center;
-//   background-color: vars.$dark-bg-color;
-//   color: white;
-//   font-family: vars.$regular-font;
-//   display: flex;
-//   flex-flow: column wrap;
-//   justify-content: center;
-// }
 label {
   cursor: pointer;
   margin-bottom: 2vw;
@@ -34,58 +23,39 @@ button {
   // display: block;
   cursor: pointer;
 }
-.hide {
-  display: none;
-}
-#form-container {
-  // display: flex;
-  // flex-flow: column wrap;
-  // // justify-content: space-around;
-  // background-color: black;
-  // max-width: 350px;
-  // width: 100%;
-  // margin: 3vw;
-  // padding: 1vw;
-  // height: 120vw; //mobile size
-  // button.back {
-  //   color: vars.$bg-color;
-  //   font-family: vars.$regular-font;
-  //   padding: 4vw 0 0 1vw;
-  //   font-weight: 400;
-  // }
-  button#submit {
+#form-container2 {
+  position: absolute;
+  // left: 65vw;
+  // top: 11vw;
+  top: 90px;
+  left: 65.5vw;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: black;
+  width: 400px;
+  height: auto;
+  padding: 20px;
+  button.back2 {
+    color: vars.$bg-color;
+    font-family: vars.$regular-font;
+    padding: 4vw 0 0 1vw;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  button#submit2 {
     font-family: vars.$bold-font;
     background-color: vars.$highlight-color;
     text-transform: uppercase;
     text-align: center;
     width: 58vw;
-    height: 7vw;
+    height: 13vw;
     padding: 0.8vw;
     align-self: center;
     font-weight: 700;
   }
 }
-.invalid {
-  border: 2px solid vars.$highlight-color;
-}
-
-input + p {
-  display: none;
-  color: vars.$highlight-color;
-}
-
-input.invalid + p {
-  display: block;
-  color: vars.$highlight-color;
-  font-size: 2.8vw;
-}
 #welcomeback {
-  // visibility: hidden;
   place-self: center;
-  //margin: 26vw 0 0 9vw;
-  // display: flex;
-  // flex-flow: column wrap;
-  // justify-content: center;
   p.welcomeback_text {
     color: vars.$bg-color;
     font-family: vars.$regular-font;
@@ -96,13 +66,14 @@ input.invalid + p {
 }
 
 @media only screen and (min-width: 1000px) {
-  #form-container {
-    // height: 35vw;
-    button#submit {
+  #form-container2 {
+    left: 65.5vw;
+    top: 11vw;
+    button#submit2 {
       height: 1.5vw;
       width: 13vw;
     }
-    button.back {
+    button.back2 {
       padding: 2vw 0 0 1vw;
     }
   }
@@ -122,7 +93,7 @@ input.invalid + p {
   input {
     height: 2vw;
   }
-  input.invalid + p {
+  input.invalid2 + p {
     font-size: 0.8vw;
   }
 }

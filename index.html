@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="scss/styles.scss" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png/" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png/"
+    />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
@@ -21,15 +26,24 @@
       <article id="scroll_box">
         <div id="intro_txt">
           <p>
-            As manufacturers digitally transform their value chains, connected devices will play a major role.
+            As manufacturers digitally transform their value chains, connected
+            devices will play a major role.
           </p>
-          <h4>The success of Industial IoT in manufactoring requires a laser focus on <span>6 crucial factors</span></h4>
+          <h4>
+            The success of Industial IoT in manufactoring requires a laser focus
+            on <span>6 crucial factors</span>
+          </h4>
         </div>
         <div id="quotes" class="hide">
           <div class="quote_container">
             <p>
-              <span>"</span>The Internet of Things will transform business processes into IoT- enabled business processes, where things and humans collaborate. We will witness an increased autonomy of smart things that will be able to navigate their
-              own ways through our factories, distribution centres and supply chains, analysing context- sensitive multiple data points to drive highly individualised business processes.
+              <span>"</span>The Internet of Things will transform business
+              processes into IoT- enabled business processes, where things and
+              humans collaborate. We will witness an increased autonomy of smart
+              things that will be able to navigate their own ways through our
+              factories, distribution centres and supply chains, analysing
+              context- sensitive multiple data points to drive highly
+              individualised business processes.
               <span>"</span>
             </p>
             <h6>
@@ -38,21 +52,29 @@
           </div>
           <div class="quote_container">
             <p>
-              <span>"</span>One of the major challenges that companies face when trying to solve for revenue generating IoT solutions is the fact these solutions often require disrupting the same business model that made them successful to date.
+              <span>"</span>One of the major challenges that companies face when
+              trying to solve for revenue generating IoT solutions is the fact
+              these solutions often require disrupting the same business model
+              that made them successful to date.
               <span>"</span>
             </p>
             <h6>
-              – Tom Galizia, Principal, U.S. Technology Strategy and Architecture Leader, Deloitte Consulting LLP
+              – Tom Galizia, Principal, U.S. Technology Strategy and
+              Architecture Leader, Deloitte Consulting LLP
             </h6>
           </div>
           <div class="quote_container">
             <p>
-              <span>"</span>The disruptive potential of IoT resides in its ability to turn businesses inside-out, transform products into services, transform services into learning architectures and make us completely rethink what the organization of
-              the future may look like.
+              <span>"</span>The disruptive potential of IoT resides in its
+              ability to turn businesses inside-out, transform products into
+              services, transform services into learning architectures and make
+              us completely rethink what the organization of the future may look
+              like.
               <span>"</span>
             </p>
             <h6>
-              – John Seely Brown, Independent Co-Chairman, Deloitte LLP Center for the Edge
+              – John Seely Brown, Independent Co-Chairman, Deloitte LLP Center
+              for the Edge
             </h6>
           </div>
         </div>
@@ -65,6 +87,7 @@
       <article id="sign_up">
         <p>Sign up and learn about these factors</p>
         <button id="signup">Sign up</button>
+        <button class="sign-in-link">Already Signed up?</button>
       </article>
       <article id="form-container" class="hidden">
         <button class="back hidden">◀︎ Back</button>
@@ -139,13 +162,41 @@
           <button class="takemethere hide">Take Me There</button>
         </form>
       </article>
-    </main>
-    <!-- <a href="intro.html">Introduction</a> -->
-    <!-- <a href="signin-form.html">Sign in</a> -->
+      <article id="form-container2" class="hidden">
+        <button class="back2 hidden">◀︎ Back</button>
+        <form data-state="post">
+          <fieldset id="signin">
+            <label for="firstname"
+              >First name
+              <input type="text" name="firstname" id="firstname" required />
+              <p>Please check your first name</p>
+            </label>
+            <label for="lastname"
+              >Last name
+              <input type="text" name="lastname" id="lastname" required />
+              <p>Please check your last name</p></label
+            >
+            <label for="email"
+              >Email<input type="email" name="email" id="email" required />
+              <p>Please check your email again</p>
+            </label>
+          </fieldset>
 
-    <!-- <template>
+          <!-- Done Sign-up process -->
+          <fieldset id="welcomeback" class="hidden">
+            <p class="welcomeback_text">Welcome back!</p>
+          </fieldset>
+
+          <button id="submit2" value="Submit" type="submit" class="hidden">
+            Sign in
+          </button>
+        </form>
+      </article>
+    </main>
+
+    <template>
       <option></option>
-    </template> -->
+    </template>
 
     <!-- <footer>
       <p>© DXC Technology Company 2020</p>

@@ -1,15 +1,22 @@
-import { endpoint2, apiKey2, form2, formElms, elms, signinSec, welcomeSec } from "./settings";
+import {
+  endpoint2,
+  apiKey2,
+  form2,
+  formElms,
+  elms,
+  signinSec,
+  welcomeSec,
+} from "./settings";
 import { gsap } from "gsap";
 require("@babel/polyfill");
 
 export function signinForm() {
   form2.setAttribute("novalidate", true);
   setupForm();
-  document.querySelector("#submit").addEventListener("click", (evt) => {
+  document.querySelector("#submit2").addEventListener("click", (evt) => {
     evt.preventDefault();
     checkInputsValue();
   });
-
   function checkInputsValue() {
     let validForm = true;
     if (form2.checkValidity() && validForm) {
@@ -18,6 +25,7 @@ export function signinForm() {
         last_name: elms.lastname.value,
         email: elms.email.value,
       });
+      showWelcome();
     } else {
       console.log("error messages");
       formElms.forEach((elm) => {
@@ -65,17 +73,17 @@ export function signinForm() {
   }
   function showWelcome(first, last, mail) {
     console.log("welcome");
-    welcomeSec.classList.remove("hide");
-    signinSec.classList.add("hide");
-    document.querySelector(".back").classList.add("hide");
-    document.querySelector("#submit").classList.add("hide");
+    welcomeSec.classList.remove("hidden");
+    signinSec.classList.add("hidden");
+    document.querySelector(".back2").classList.add("hidden");
+    document.querySelector("#submit2").classList.add("hidden");
     setTimeout(redirectToAssetPage(first, last, mail), 2000);
   }
   function redirectToAssetPage(first, last, mail) {
     console.log("redirect");
     let userStr = JSON.stringify([first, last, mail]);
     //TODO: link to the correct asset.html file 👇🏽
-    //document.location.href = "asset.html";
+    location.href = "intro.html";
     localStorage.setItem("user", userStr);
   }
 }

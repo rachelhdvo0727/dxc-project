@@ -1,4 +1,5 @@
-import { endpoint1, apiKey1, form } from "./settings";
+import { gsap } from "gsap";
+import { endpoint1, apiKey1, form, yellowChecked } from "./settings";
 require("@babel/polyfill");
 // let step = 1;
 // const personal = document.querySelector("#personal input");
@@ -108,7 +109,6 @@ export function signupForm() {
       // }
     }
   }
-  //TODO: process bar
   function setUp(data) {
     data.forEach(showCountry);
     document.querySelector("form").setAttribute("novalidate", true);
@@ -283,7 +283,6 @@ export function signupForm() {
       .then((res) => res.json())
       .then((data) => console.log(data));
   }
-  //TODO: authentication
   function showDoneProcess() {
     console.log("done sign up");
     //hide back button at step 1
@@ -292,9 +291,14 @@ export function signupForm() {
     document.querySelector("#submit").classList.add("hide");
     document.querySelector("#done_signup").classList.remove("hide");
     document.querySelector(".takemethere").classList.remove("hide");
-    document.querySelector(".takemethere").addEventListener("click", () => {
+    document.querySelector(".takemethere").addEventListener("click", (e) => {
       console.log("go to Asset page");
+      location.href = "intro.html";
     });
+    //show check mark on the progress page
+    document.querySelector("#nmb2").classList.add("st3");
+    document.querySelector("#nmb3").classList.add("st3");
+    document.querySelector("#check3").classList.remove("st3");
     loadSvg();
     useSvg();
     animateCheckSvg();
@@ -318,9 +322,6 @@ export function signupForm() {
   }
   function animateCheckSvg() {
     let checksvg = document.querySelector("#checked-svg > use:nth-child(1)");
-    // shakeTl.to(checksvg, {
-    //   x: "+=5",
-    // });
     gsap.from(checksvg, {
       duration: 1,
       opacity: 0,
@@ -328,9 +329,6 @@ export function signupForm() {
       x: 50,
       scale: 0.5,
     });
-    // shakeTl.to(checksvg, {
-    //   x: "-=5",
-    // });
   }
   function goToNext() {
     let getStep = document.querySelector("#main-form").dataset.step;
@@ -374,7 +372,6 @@ export function signupForm() {
     progressbar();
     console.log(step);
     if (step === 3) {
-      console.log(step);
       //show step 2
       document.querySelector("#aboutCompany").classList.remove("hide");
       document.querySelector(".next").classList.remove("hide");
@@ -384,7 +381,6 @@ export function signupForm() {
       document.querySelector("#personal").classList.add("hide");
     }
     if (step === 2) {
-      console.log(step);
       //show step 2
       document.querySelector("#aboutCompany").classList.remove("hide");
       document.querySelector(".next").classList.remove("hide");
@@ -394,11 +390,18 @@ export function signupForm() {
       document.querySelector("#personal").classList.add("hide");
       //while at step 2, click back
       document.querySelector(".back").addEventListener("click", () => {
-        step = 1;
         if (step === 1) {
           console.log(step);
           startAgain();
         }
+      });
+    }
+    //go back to landing
+    let personalsection = document.querySelector("#personal");
+    if (step === 0 || step === 1 || personalsection || startAgain()) {
+      document.querySelector(".back").addEventListener("click", () => {
+        console.log(step);
+        regretAndStopSignUp();
       });
     }
   }
@@ -413,7 +416,19 @@ export function signupForm() {
     document.querySelector("#submit").classList.add("hide");
     document.querySelector(".takemethere").classList.add("hide");
   }
-
+  function regretAndStopSignUp() {
+    document.querySelector("#form-container").style.display = "none";
+    document.querySelector("#sign_up").classList.remove("slide_out");
+    //     document.querySelector(".next").classList.add("hide");
+  }
+  function correctInputs() {
+    console.log("correct inputs");
+    formElms.forEach((elm) => {
+      elm.addEventListener("keyup", () => {
+        elm.classList.remove("invalid");
+      });
+    });
+  }
   async function getSvg(filename, callback) {
     let response = await fetch(filename);
     let mySvgData = await response.text();
