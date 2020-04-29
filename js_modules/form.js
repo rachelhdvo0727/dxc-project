@@ -1,4 +1,4 @@
-import { endpoint, apiKey, form, company, consent } from "./settings";
+import { endpoint1, apiKey1, form, company, consent } from "./settings";
 require("@babel/polyfill");
 // let step = 1;
 window.form = form;
@@ -213,11 +213,11 @@ export function signupForm() {
 
   function getEmail(email, callback) {
     //fetch data using id
-    fetch(`${endpoint}?q={"workemail":"${email}"}`, {
+    fetch(`${endpoint1}?q={"workemail":"${email}"}`, {
       method: "get",
       headers: {
         accept: "application/json",
-        "x-apikey": apiKey,
+        "x-apiKey1": apiKey1,
         "cache-control": "no-cache",
       },
     })
@@ -231,11 +231,11 @@ export function signupForm() {
 
   // function get() {
   //   //fetch data using id
-  //   fetch(`${endpoint}`, {
+  //   fetch(`${endpoint11111}`, {
   //     method: "get",
   //     headers: {
   //       accept: "application/json",
-  //       "x-apikey": apiKey,
+  //       "x-apiKey1": apiKey1,
   //       "cache-control": "no-cache",
   //     },
   //   })
@@ -275,11 +275,11 @@ export function signupForm() {
     //   form.reset();
     const postData = JSON.stringify(data);
     console.log(data);
-    fetch(endpoint, {
+    fetch(endpoint1, {
       method: "post",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        "x-apikey": apiKey,
+        "x-apiKey1": apiKey1,
         "cache-control": "no-cache",
       },
       body: postData,

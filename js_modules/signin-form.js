@@ -1,6 +1,6 @@
 import {
-  endpoint,
-  apiKey,
+  endpoint2,
+  apiKey2,
   form,
   formElms,
   elms,
@@ -39,11 +39,11 @@ export function signinForm() {
   }
   function postInfo(data) {
     const postData = JSON.stringify(data);
-    fetch(endpoint, {
+    fetch(endpoint2, {
       method: "post",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        "x-apikey": apiKey,
+        "x-apikey": apiKey2,
         "cache-control": "no-cache",
       },
       body: postData,
