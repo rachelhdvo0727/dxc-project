@@ -288,6 +288,54 @@ export function signupForm() {
     console.log("done sign up");
     //hide back button at step 1
     document.querySelector(".back").classList.add("hide");
+    document.querySelector("#consent-label").classList.add("hide");
+    document.querySelector("#submit").classList.add("hide");
+    document.querySelector("#done_signup").classList.remove("hide");
+    document.querySelector(".takemethere").classList.remove("hide");
+    document.querySelector(".takemethere").addEventListener("click", () => {
+      console.log("go to Asset page");
+    });
+    loadSvg();
+    useSvg();
+    animateCheckSvg();
+  }
+  async function loadSvg() {
+    const response = await fetch(yellowChecked);
+    const mySVG = await response.text();
+    document.querySelector(".svg").innerHTML = mySVG;
+  }
+  function useSvg() {
+    let checkSvg = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "use"
+    );
+    checkSvg.setAttribute("href", "#yellowCheckedDone");
+    checkSvg.setAttribute("height", "150px");
+    checkSvg.setAttribute("width", "150px");
+    checkSvg.setAttribute("x", "80px");
+    checkSvg.setAttribute("y", "130px");
+    document.querySelector("#checked-svg").appendChild(checkSvg);
+  }
+  function animateCheckSvg() {
+    let checksvg = document.querySelector("#checked-svg > use:nth-child(1)");
+    // shakeTl.to(checksvg, {
+    //   x: "+=5",
+    // });
+    gsap.from(checksvg, {
+      duration: 1,
+      opacity: 0,
+      ease: "power4.out",
+      x: 50,
+      scale: 0.5,
+    });
+    // shakeTl.to(checksvg, {
+    //   x: "-=5",
+    // });
+  }
+  function showDoneProcess() {
+    console.log("done sign up");
+    //hide back button at step 1
+    document.querySelector(".back").classList.add("hide");
   }
   function goToNext() {
     let getStep = document.querySelector("#main-form").dataset.step;

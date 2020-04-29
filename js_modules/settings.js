@@ -11,3 +11,4 @@ export const formElms = form.querySelectorAll("input");
 export const elms = form.elements;
 export const signinSec = document.querySelector("#signin");
 export const welcomeSec = document.querySelector("#welcomeback");
+export const yellowChecked = "/svgs/form/yellow-checked-don.svg";

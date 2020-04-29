@@ -36,7 +36,6 @@ button {
   all: initial;
   // display: block;
   cursor: pointer;
-  font-family: vars.$bold-font;
 }
 .hide {
   display: none;
@@ -51,10 +50,14 @@ button {
   height: 110vw; //mobile size
   button.back {
     color: vars.$bg-color;
+    font-family: vars.$regular-font;
     padding: 4vw 0 0 1vw;
+    font-weight: 400;
   }
   button#submit,
-  button.next {
+  button.next,
+  button.takemethere {
+    font-family: vars.$bold-font;
     background-color: vars.$highlight-color;
     text-transform: uppercase;
     text-align: center;
@@ -62,6 +65,7 @@ button {
     height: 7vw;
     padding: 0.8vw;
     align-self: center;
+    font-weight: 700;
   }
 }
 .invalid {
@@ -98,11 +102,27 @@ input.invalid + p {
 #consent.invalid {
   border: 2px solid red;
 }
+
+#done_signup {
+  // visibility: hidden;
+  place-self: center;
+  //margin: 26vw 0 0 9vw;
+  // display: flex;
+  // flex-flow: column wrap;
+  // justify-content: center;
+  p.alldone_text {
+    color: vars.$bg-color;
+    font-family: vars.$regular-font;
+    place-self: center;
+  }
+}
+
 @media only screen and (min-width: 1000px) {
   #form-container {
     height: 35vw;
     button.next,
-    button#submit {
+    button#submit,
+    button.takemethere {
       height: 1.5vw;
       width: 13vw;
     }
