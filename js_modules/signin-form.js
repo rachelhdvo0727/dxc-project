@@ -1,12 +1,4 @@
-import {
-  endpoint2,
-  apiKey2,
-  form2,
-  formElms,
-  elms,
-  signinSec,
-  welcomeSec,
-} from "./settings";
+import { endpoint2, apiKey2, form2, formElms, elms, signinSec, welcomeSec } from "./settings";
 import { gsap } from "gsap";
 require("@babel/polyfill");
 

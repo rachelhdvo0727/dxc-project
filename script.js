@@ -22,10 +22,18 @@ function clickSignUp() {
   document.querySelector("#signup").addEventListener("click", (evt) => {
     document.querySelector("#form-container").style.display = "block";
     document.querySelector("#form-container").classList.add("slide_in");
-    document.querySelector("#scroll_box").classList.add("hide");
-    document.querySelector("#dot_container").classList.add("hide");
-    document.querySelector("#signup").classList.add("hide");
+    // document.querySelector("#scroll_box").classList.add("hide");
+    // document.querySelector("#dot_container").classList.add("hide");
+    // document.querySelector("#signup").classList.add("hide");
+    document.querySelector("#sign_up").classList.add("slide_out");
     document.querySelector(".next").classList.remove("hide");
+    document.querySelector("#form-container").classList.remove("hidden");
+    document.querySelector(".back").classList.remove("hidden");
+
+    if (window.innerWidth < "950") {
+      document.querySelector("#scroll_box").style.top = "600px";
+      document.querySelector("#dot_container").style.top = "800px";
+    }
   });
   signupForm();
 }

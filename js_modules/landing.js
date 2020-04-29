@@ -6,13 +6,11 @@ export function landing() {
   startLanding();
   function startLanding() {
     document.querySelector("#scroll_box").addEventListener("scroll", scrolling);
-    document.querySelector("button").addEventListener("click", showQuotes);
+    document.querySelector("#signup").addEventListener("click", showQuotes);
   }
   function scrolling() {
     let scrollContainer = document.querySelector("#scroll_box");
-    let ratio =
-      scrollContainer.scrollTop /
-      (scrollContainer.scrollHeight - scrollContainer.clientHeight);
+    let ratio = scrollContainer.scrollTop / (scrollContainer.scrollHeight - scrollContainer.clientHeight);
     console.log(ratio);
 
     if (ratio < "0.333333") {
@@ -37,7 +35,7 @@ export function landing() {
   function showQuotes() {
     document.querySelector("#intro_txt").classList.add("hide");
     document.querySelector("#quotes").classList.remove("hide");
-    document.querySelector("#quotes").classList.add("slide_in");
+    document.querySelector("#quotes").classList.add("slide_up");
     document.querySelector("#dot_container").classList.remove("hidden");
   }
 }

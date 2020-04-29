@@ -8,14 +8,36 @@ form {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  width: 100%;
+  width: 350px;
+  margin: 0 auto;
 }
 label {
   cursor: pointer;
   margin-bottom: 2vw;
 }
+
+article#sign_up {
+  position: relative;
+  background-color: white;
+  width: 400px;
+  height: 500px;
+  padding: 20px;
+  top: 90px;
+  left: 55vw;
+  button#signup {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: vars.$highlight-color;
+    font-family: vars.$bold-font;
+  }
+}
+
 input {
-  height: 7vw;
+  height: 2.5vw;
 }
 fieldset {
   display: flex;
@@ -38,14 +60,14 @@ fieldset input {
 }
 #form-container {
   position: absolute;
-  top: 32vw;
-  left: 8vw;
+  top: 90px;
+  left: 55vw;
   display: flex;
   flex-flow: column wrap;
   background-color: black;
-  max-width: 350px;
-  width: 100%;
-  height: 120vw; //mobile size
+  width: 400px;
+  height: auto;
+  padding: 20px;
   button.back {
     color: vars.$bg-color;
     font-family: vars.$regular-font;
@@ -55,9 +77,9 @@ fieldset input {
   button#submit,
   button.next,
   button.takemethere {
-    position: absolute;
-    top: 71vh;
-    left: 19vw;
+    // position: absolute;
+    // top: 500px;
+    // left: 19vw;
     font-family: vars.$bold-font;
     background-color: vars.$highlight-color;
     text-transform: uppercase;
@@ -122,30 +144,59 @@ input.invalid + p {
   }
 }
 
-@media only screen and (min-width: 1000px) {
+#form-container {
+  button.next,
+  button#submit,
+  button.takemethere {
+    height: 1.5vw;
+    width: 13vw;
+  }
+  button.back {
+    padding: 2vw 0 0 1vw;
+  }
+}
+fieldset {
+  margin: 1vw;
+}
+label {
+  margin-bottom: 1vw;
+}
+input.invalid + p {
+  font-size: 0.8vw;
+}
+
+@media only screen and (max-width: 1050px) {
   #form-container {
-    height: 35vw;
+    top: 100px;
+    left: 50vw;
+  }
+
+  input {
+    height: 4vh;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  #form-container {
+    top: 200px;
+    left: 0;
+    width: 100%;
     button.next,
     button#submit,
     button.takemethere {
-      height: 1.5vw;
-      width: 13vw;
-    }
-    button.back {
-      padding: 2vw 0 0 1vw;
+      height: 5vw;
+      width: 20vw;
     }
   }
-  fieldset {
-    margin: 1vw;
+
+  article#sign_up {
+    left: 0;
+    width: 100%;
+    top: 600px;
   }
-  label {
-    margin-bottom: 1vw;
-  }
+
   input {
-    height: 2vw;
-  }
-  input.invalid + p {
-    font-size: 0.8vw;
+    height: 4vh;
   }
 }
 
