@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="scss/styles.scss" />
+  <link rel="stylesheet" href="scss/styles-asset.scss" />
   <title>Introduction</title>
 </head>
 
@@ -28,14 +28,15 @@
           <li><a href="#section4">Operating Model Changes</a< li>
           <li><a href="#section5">Capability Uplift</a</li>
           <li><a href="#section6">End-to-end Security</a</li>
+          <li><a href="#about">About the author</a</li>
         </ol>
       </div>
     </nav>
 
   </header>
 
-  <main class="sections-main">
-
+  <main>
+  <article class="sections-main">
     <article id="intro1">
       <section id="introtext_1">
         <h1>6 factors crucial to the success of industrial IoT in manufacturing</h1>
@@ -46,7 +47,10 @@
       <section id="man-machine_container">
       </section>
       <div class="factors_container">
-        <div class="factors_img"></div>
+        <svg class="factors_img" viewBox="0 0 500
+        500">
+
+        </svg>
       </div>
       <button class="readmore">Read more →</button>
     </article>
@@ -90,7 +94,7 @@
 
     <!-- sections 1 - 6 -->
   
-    <a name="section1"></a>
+    <article id="text-sections">
     <section class="section-1">
       <div id="modal-bg" class="hide"></div>
       <div id="modal-container" class="hide">
@@ -101,16 +105,18 @@
           </div>
         </div>
       </div>
+        
       <div class="section1-top-left">
         <h2>Business <br>Benefits</h2>
-      </div>
-      <div class="section1-top-right"></div>
-      <div class="section1-bottom-left">
         <p>Early discussions about IIoT primarily focused on the technology and what it could
           do, rather than on the business value IIoT could deliver. This is not surprising; IoT
           technologies’ cool factor has clearly captured people’s attention. More recently, the
           conversations have shifted to the variety of business benefits IIoT can deliver.</p>
       </div>
+      <!-- <div class="section1-top-right"></div> -->
+      <!-- <div class="section1-bottom-left">
+
+      </div> -->
       <div class="section1-bottom-right">
         <template id="benefitTemplate">
           <div class="benefit-img">
@@ -119,17 +125,18 @@
             <h3 class="benefit">Business model innovation</h3>
           </div>
         </template>
+
       </div>
     </section>
-    <a name="section2"></a>
+    </section>
     <section class="section-2">
       <div class="section2-top-left">
         <h2>
-          Strategic Alignment
+          Strategic <br>Alignment
         </h2>
       </div>
-      <div class="section2-top-right"></div>
-      <div class="section2-bottom-left"></div>
+      <!-- <div class="section2-top-right"></div>
+      <div class="section2-bottom-left"></div> -->
       <div class="section2-bottom-right">
         <p>
           Some organizations have set up digital innovation labs without clear
@@ -159,8 +166,8 @@
           Process Focus
         </h2>
       </div>
-      <div class="section3-top-right"></div>
-      <div class="section3-bottom-left"></div>
+      <!-- <div class="section3-top-right"></div>
+      <div class="section3-bottom-left"></div> -->
       <div class="section3-bottom-right">
         <p>
           The discussion around IIoT is dominated by data analytics, machine
@@ -188,9 +195,9 @@
       <div class="section4-top-left">
         <h2>Operating <br />Model Changes</h2>
       </div>
-      <div class="section4-top-right"></div>
+      <!-- <div class="section4-top-right"></div>
       <div class="section4-bottom-left">
-      </div>
+      </div> -->
       <div class="section4-bottom-right">
         <p>
           Many IoT industry participants talk about the convergence of IT and
@@ -223,10 +230,10 @@
       <div class="section5-top-left">
         <h2>Capability <br> Uplift</h2>
       </div>
-      <div class="section5-top-right"></div>
+      <!-- <div class="section5-top-right"></div>
       <div class="section5-bottom-left">
 
-      </div>
+      </div> -->
       <div class="section5-bottom-right">
         <p>
           With changes to the technology landscape and operating model, employees need to
@@ -260,8 +267,8 @@
       <div class="section6-top-left">
         <h2>End-to-end <br>Security</h2>
       </div>
-      <div class="section6-top-right"></div>
-      <div class="section6-bottom-left"></div>
+      <!-- <div class="section6-top-right"></div>
+      <div class="section6-bottom-left"></div> -->
       <div class="section6-bottom-right">
         <p>
           Vulnerabilities in self-driving cars get a lot of media attention and illustrate the
@@ -282,7 +289,8 @@
         </p>
       </div>
     </section>
-  </main>
+  </article>
+  </article>
   <!-- Author section -->
   <article id="about">
     <section id="author">
@@ -314,6 +322,7 @@
       </p>
     </section>
   </article>
+</main>
   <!-- Footer -->
   <footer>
     <p>© DXC Technology Company 2020</p>

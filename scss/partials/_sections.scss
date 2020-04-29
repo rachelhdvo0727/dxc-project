@@ -6,54 +6,73 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 /*----------section styling-----------*/
-main {
+.sections-main {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
 }
-section {
+.sections-main section {
   background-color: $bg-color;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100vh;
+  // height: 100vh;
   overflow: hidden;
+}
+
+#text-sections {
+  display: flex;
+  flex-direction: column;
+}
+
+#text-sections section {
+  padding-bottom: 5rem;
 }
 
 .section-1 {
   background-image: url(/static/svgs/number1.svg);
   background-repeat: no-repeat;
-  background-position: 8vw 2vw;
+  background-position: 8vw 50%;
   background-size: 200px;
+  min-height: 80vh;
 }
 .section-2 {
   background-image: url(/static/svgs/number2.svg);
   background-repeat: no-repeat;
-  background-position: 8vw 2vw;
-  background-size: 320px;
+  background-position: 8vw 50%;
+  background-size: 315px;
+  min-height: 80vh;
 }
 .section-3 {
   background-image: url(/static/svgs/number3.svg);
   background-repeat: no-repeat;
-  background-position: 8vw 2vw;
+  background-position: 8vw 50%;
   background-size: 320px;
+  min-height: 80vh;
 }
 .section-4 {
   background-image: url(/static/svgs/number4.svg);
   background-repeat: no-repeat;
-  background-position: 8vw 2vw;
+  background-position: 8vw 50%;
   background-size: 320px;
+  min-height: 80vh;
 }
 .section-5 {
   background-image: url(/static/svgs/number5.svg);
   background-repeat: no-repeat;
-  background-position: 8vw 2vw;
+  background-position: 8vw 50%;
   background-size: 320px;
+  min-height: 80vh;
 }
 .section-6 {
   background-image: url(/static/svgs/number6.svg);
   background-repeat: no-repeat;
-  background-position: 8vw 2vw;
+  background-position: 8vw 50%;
   background-size: 320px;
+  min-height: 80vh;
 }
 .section1-top-left,
 .section2-top-left,
@@ -61,42 +80,55 @@ section {
 .section4-top-left,
 .section5-top-left,
 .section6-top-left {
-  height: 50vh;
+  align-self: center;
+  padding-left: 10vw;
 }
-.section1-bottom-left,
-.section2-bottom-left,
-.section3-bottom-left,
-.section4-bottom-left,
-.section5-bottom-left,
-.section6-bottom-left {
-  height: 50vh;
+
+.section1-top-left {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
 }
-.section1-top-right,
-.section2-top-right,
-.section3-top-right,
-.section4-top-right,
-.section5-top-right,
-.section6-top-right {
-  height: 10vh;
+
+.section1-top-left h2 {
+  padding-left: 4rem;
 }
+// .section1-bottom-left,
+// .section2-bottom-left,
+// .section3-bottom-left,
+// .section4-bottom-left,
+// .section5-bottom-left,
+// .section6-bottom-left {
+//   // height: 50vh;
+// }
+// .section1-top-right,
+// .section2-top-right,
+// .section3-top-right,
+// .section4-top-right,
+// .section5-top-right,
+// .section6-top-right {
+//   // height: 10vh;
+// }
 .section1-bottom-right,
 .section2-bottom-right,
 .section3-bottom-right,
 .section4-bottom-right,
 .section6-bottom-right {
-  height: 90vh;
-  margin-top: -40vh;
+  // height: 90vh;
+  // margin-top: -40vh;
+  align-self: center;
+  justify-self: center;
 }
-.section5-bottom-right {
-  height: 90vh;
-  margin-top: -45vh;
+.section1-bottom-right {
+  padding-top: 2rem;
 }
 
 /*-------making it responsive-----------*/
 @media only screen and (max-width: 650px) {
-  section {
-    display: grid;
-    grid-template-columns: 1fr;
+  .sections-main section {
+    display: flex;
+    // grid-template-columns: 1fr;
+    flex-direction: column;
   }
   .section2-bottom-left,
   .section3-bottom-left,
@@ -105,80 +137,71 @@ section {
   .section6-bottom-left {
     display: none;
   }
-  .section1-bottom-left {
-    margin-top: -35vh;
-  }
-  .section1-bottom-right {
-    margin-top: -35vh;
-  }
+  // .section1-bottom-left {
+  //   // margin-top: -30vh;
+  // }
+  // .section1-bottom-right {
+  //   // margin-top: -35vh;
+  // }
 
-  .section2-bottom-right,
-  .section3-bottom-right,
-  .section4-bottom-right,
-  .section6-bottom-right,
-  .section5-bottom-right {
-    margin-top: -20vh;
-  }
-}
+  // .section2-bottom-right,
+  // .section3-bottom-right,
+//   .section4-bottom-right,
+//   .section6-bottom-right,
+//   .section5-bottom-right {
+//     // margin-top: -20vh;
+//   }
+// }
 
-@media only screen and (max-width: 550px) {
-  .section2-bottom-right,
-  .section3-bottom-right,
-  .section4-bottom-right,
-  .section6-bottom-right,
-  .section5-bottom-right {
-    margin-top: -30vh;
-  }
-  .section1-bottom-right {
-    margin-top: -35vh;
-  }
-}
-@media only screen and (max-width: 450px) {
-  section {
-    height: 130vh;
-  }
-  .section1-bottom-right {
-    margin-top: -30vh;
-  }
-  .section2-bottom-right,
-  .section3-bottom-right,
-  .section4-bottom-right,
-  .section6-bottom-right,
-  .section5-bottom-right {
-    margin-top: -40vh;
-  }
-}
+// @media only screen and (max-width: 550px) {
+//   .section2-bottom-right,
+//   .section3-bottom-right,
+//   .section4-bottom-right,
+//   .section6-bottom-right,
+//   .section5-bottom-right {
+//     // margin-top: -30vh;
+//   }
+//   .section1-bottom-right {
+//     // margin-top: -35vh;
+//   }
+// }
+// @media only screen and (max-width: 450px) {
+//   .sections-main section {
+//     // height: 130vh;
+//   }
+//   .section1-bottom-right {
+//     // margin-top: -30vh;
+//   }
+//   .section2-bottom-right,
+//   .section3-bottom-right,
+//   .section4-bottom-right,
+//   .section6-bottom-right,
+//   .section5-bottom-right {
+//     // margin-top: -40vh;
+//   }
+// }
 
 /*-----font styling for section------*/
-h2 {
-  font-family: $regular-font;
+.sections-main h2 {
+  font-family: GT Walsheim Pro;
   font-weight: 700;
   font-style: normal;
   color: $text-color;
   font-size: 3.5em;
 }
-p {
-  font-family: $regular-font;
+.sections-main p {
+  font-family: GT Walsheim Pro;
   font-weight: 400;
   font-style: normal;
   color: $text-color;
   font-size: 1em;
 }
-h3 {
-  font-family: $regular-font;
+.sections-main h3 {
+  font-family: GT Walsheim Pro;
   font-weight: 700;
   font-style: normal;
   color: $text-color;
   font-size: 1.5em;
-}
-.section1-top-left h2,
-.section2-top-left h2,
-.section3-top-left h2,
-.section4-top-left h2,
-.section5-top-left h2,
-.section6-top-left h2 {
-  margin-top: 10vw;
-  margin-left: 10vw;
 }
 
 .section2-bottom-right p,
