@@ -4,9 +4,11 @@
 @use 'partials/burgermenu';
 @use 'partials/intro1-2';
 @use 'partials/sections';
+@use 'partials/form';
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+

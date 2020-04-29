@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="scss/styles.scss" />
+  </head>
+  <body>
+    <article id="form-container">
+      <button class="back">◀︎ Back</button>
+      <form>
+        <fieldset id="personal" name="personal">
+          <label>
+            First name
+            <input id="firstname" name="firstname" required />
+            <p>Please provide your first name</p>
+          </label>
+          <label>
+            Last name
+            <input id="lastname" name="lastname" required />
+            <p>Please provide your last name</p>
+          </label>
+          <label>
+            Job title
+            <input id="jobtitle" name="jobtitle" required />
+            <p>Please provide your job title</p>
+          </label>
+        </fieldset>
+
+        <fieldset id="aboutCompany" class="hide">
+          <label>
+            Company
+            <input id="company" name="company" required />
+          </label>
+          <label>
+            Country of company
+            <input id="country" list="countries" name="country" required />
+            <datalist id="countries"></datalist>
+          </label>
+          <label>
+            Work e-mail
+            <input id="email" type="email" name="workemail" required />
+            <p id="emailError"></p>
+          </label>
+        </fieldset>
+
+        <label id="consent-label" class="hide">
+          <input id="consent" name="consent" type="checkbox" required />
+          Yes, you can e-mail me and process my data for marketing purposes.
+          <p>Please check this box if you want to proceed</p>
+        </label>
+        <button class="next">Next</button>
+        <button id="submit" class="hide" type="submit" value="Submit">
+          Submit
+        </button>
+      </form>
+    </article>
+
+    <template>
+      <option></option>
+    </template>
+    <script src="form.js"></script>
+  </body>
+</html>
