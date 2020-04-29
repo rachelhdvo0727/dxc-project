@@ -70,10 +70,13 @@ section#introtext_1 {
     transform: scale(1.2);
   }
 
-  // polygon:hover {
-  //   fill: $highlight-color;
-  // }
+  polygon {
+    cursor: pointer;
+  }
 
+  .factors_img g {
+    cursor: pointer;
+  }
   // polygon:hover ~ p.cls-4 {
   //   fill: $highlight-color;
   // }

@@ -16,7 +16,7 @@ function start() {
 function placeSVG(svg) {
   console.log("placeSvg");
   document.querySelector(".factors_img").innerHTML = svg;
-  document.querySelectorAll("#poly1-2, #poly2-2, #poly3-2, #poly4-2, #poly5-2, #poly6-2").forEach((elm) => {
+  document.querySelectorAll(".factors_img polygon").forEach((elm) => {
     elm.addEventListener("mouseover", mouseOverPoly);
     elm.addEventListener("mouseout", mouseOutPoly);
   });
@@ -28,34 +28,51 @@ function placeSVG(svg) {
 }
 
 function mouseOverPoly(e) {
-  console.log(e.target);
-  e.target.style.fill = "#ffed00";
-  console.log(e.target.id);
-  document.querySelector(`#${e.target.id}-2`).style.stroke = "#000000";
-  document.querySelector(`#${e.target.id}-2`).style.fill = "#000000";
+  if (e.target.id == "poly0") {
+  } else {
+    e.target.style.fill = "#ffed00";
+    // document.querySelector(`#${e.target.id}-2`).style.stroke = "#000000";
+    document.querySelector(`#${e.target.id}-2`).style.stroke = "#000000";
+  }
 }
 
 function mouseOutPoly(e) {
-  e.target.style.fill = "#000000";
-  document.querySelector(`#${e.target.id}-2`).style.stroke = "#ffffff";
+  if (e.target.id == "poly0") {
+  } else {
+    e.target.style.fill = "#000000";
+    document.querySelector(`#${e.target.id}-2`).style.stroke = "#ffffff";
+  }
 }
 
 function mouseOverG(e) {
-  console.log(e.target);
-  document.querySelectorAll(`#${e.target.id}`).forEach((elm) => {
-    elm.style.fill = "#000000";
-  });
-  document.querySelectorAll(`#${e.target.id}`).style.stroke = "#000000";
-  console.log(e.target.id);
-  const polyId = e.target.id.slice(0, e.target.id.length - 2);
-  console.log(polyId);
-  document.querySelector(`#${polyId}`).style.stroke = "#000000";
-  document.querySelector(`#${polyId}`).style.fill = "#000000";
+  const group = e.target.parentNode.id;
+  console.log(group);
+  let polyId = group.slice(0, group.length - 2);
+  console.log(e.target.parentNode.id);
+  // document.querySelectorAll(`#${parentNode.id}`).forEach((elm) => {
+  //   elm.style.fill = "#000000";
+  // });
+  // document.querySelector(`#${e.target.parentNode.id}`).style.stroke = "#000000";
+  if (polyId == "poly0") {
+  } else {
+    document.querySelector(`#${e.target.parentNode.id}`).style.stroke = "#000000";
+    console.log(e.target.parentNode.id.slice(0, e.target.parentNode.id.length - 2));
+
+    console.log(polyId);
+    document.querySelector(`#${polyId}`).style.fill = "#ffed00";
+  }
 }
 
 function mouseOutG(e) {
-  e.target.style.fill = "#000000";
-  document.querySelector(`#${e.target.id}-2`).style.stroke = "#ffffff";
+  let polyId = e.target.parentNode.id.slice(0, e.target.parentNode.id.length - 2);
+  if (polyId == "poly0") {
+  } else {
+    document.querySelector(`#${e.target.parentNode.id}`).style.stroke = "#ffffff";
+    document.querySelector(`#${e.target.parentNode.id}`).style.fill = "#fffff";
+
+    console.log(polyId);
+    document.querySelector(`#${polyId}`).style.fill = "#000000";
+  }
 }
 async function getSvg(filename, callback) {
   let response = await fetch(filename);

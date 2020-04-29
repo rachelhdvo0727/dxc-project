@@ -66,6 +66,8 @@ header {
 }
 
 .menulist {
+  transition: all 0.5s ease;
+
   background-color: $bg-color;
   z-index: 7777;
   position: fixed;
@@ -83,7 +85,8 @@ header {
   }
 }
 .hidden {
-  display: none;
+  transform: translateX(-100);
+  opacity: 0;
 }
 .overlay {
   filter: blur(3.6507298946380615px) brightness(97%);
