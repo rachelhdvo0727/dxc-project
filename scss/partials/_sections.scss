@@ -137,49 +137,49 @@ html {
   .section6-bottom-left {
     display: none;
   }
-  // .section1-bottom-left {
-  //   // margin-top: -30vh;
-  // }
-  // .section1-bottom-right {
-  //   // margin-top: -35vh;
-  // }
+  .section1-bottom-left {
+    // margin-top: -30vh;
+  }
+  .section1-bottom-right {
+    // margin-top: -35vh;
+  }
 
-  // .section2-bottom-right,
-  // .section3-bottom-right,
-//   .section4-bottom-right,
-//   .section6-bottom-right,
-//   .section5-bottom-right {
-//     // margin-top: -20vh;
-//   }
-// }
+  .section2-bottom-right,
+  .section3-bottom-right,
+  .section4-bottom-right,
+  .section6-bottom-right,
+  .section5-bottom-right {
+    // margin-top: -20vh;
+  }
+}
 
-// @media only screen and (max-width: 550px) {
-//   .section2-bottom-right,
-//   .section3-bottom-right,
-//   .section4-bottom-right,
-//   .section6-bottom-right,
-//   .section5-bottom-right {
-//     // margin-top: -30vh;
-//   }
-//   .section1-bottom-right {
-//     // margin-top: -35vh;
-//   }
-// }
-// @media only screen and (max-width: 450px) {
-//   .sections-main section {
-//     // height: 130vh;
-//   }
-//   .section1-bottom-right {
-//     // margin-top: -30vh;
-//   }
-//   .section2-bottom-right,
-//   .section3-bottom-right,
-//   .section4-bottom-right,
-//   .section6-bottom-right,
-//   .section5-bottom-right {
-//     // margin-top: -40vh;
-//   }
-// }
+@media only screen and (max-width: 550px) {
+  .section2-bottom-right,
+  .section3-bottom-right,
+  .section4-bottom-right,
+  .section6-bottom-right,
+  .section5-bottom-right {
+    // margin-top: -30vh;
+  }
+  .section1-bottom-right {
+    // margin-top: -35vh;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .sections-main section {
+    // height: 130vh;
+  }
+  .section1-bottom-right {
+    // margin-top: -30vh;
+  }
+  .section2-bottom-right,
+  .section3-bottom-right,
+  .section4-bottom-right,
+  .section6-bottom-right,
+  .section5-bottom-right {
+    // margin-top: -40vh;
+  }
+}
 
 /*-----font styling for section------*/
 .sections-main h2 {

@@ -253,7 +253,6 @@ export function signupForm() {
         country: form.elements.country.value,
         workemail: form.elements.email.value,
       });
-      showDoneProcess();
     } else {
       showError();
     }
@@ -281,7 +280,7 @@ export function signupForm() {
       body: postData,
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then(() => showDoneProcess());
   }
   function showDoneProcess() {
     console.log("done sign up");
@@ -420,14 +419,6 @@ export function signupForm() {
     document.querySelector("#form-container").style.display = "none";
     document.querySelector("#sign_up").classList.remove("slide_out");
     //     document.querySelector(".next").classList.add("hide");
-  }
-  function correctInputs() {
-    console.log("correct inputs");
-    formElms.forEach((elm) => {
-      elm.addEventListener("keyup", () => {
-        elm.classList.remove("invalid");
-      });
-    });
   }
   async function getSvg(filename, callback) {
     let response = await fetch(filename);
