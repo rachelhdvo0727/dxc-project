@@ -1,0 +1,257 @@
+@use 'partials/fonts';
+@use 'partials/vars' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*----------section styling-----------*/
+main {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+section {
+  background-color: $bg-color;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.section-1 {
+  background-image: url(/static/svgs/number1.svg);
+  background-repeat: no-repeat;
+  background-position: 8vw 2vw;
+  background-size: 200px;
+}
+.section-2 {
+  background-image: url(/static/svgs/number2.svg);
+  background-repeat: no-repeat;
+  background-position: 8vw 2vw;
+  background-size: 320px;
+}
+.section-3 {
+  background-image: url(/static/svgs/number3.svg);
+  background-repeat: no-repeat;
+  background-position: 8vw 2vw;
+  background-size: 320px;
+}
+.section-4 {
+  background-image: url(/static/svgs/number4.svg);
+  background-repeat: no-repeat;
+  background-position: 8vw 2vw;
+  background-size: 320px;
+}
+.section-5 {
+  background-image: url(/static/svgs/number5.svg);
+  background-repeat: no-repeat;
+  background-position: 8vw 2vw;
+  background-size: 320px;
+}
+.section-6 {
+  background-image: url(/static/svgs/number6.svg);
+  background-repeat: no-repeat;
+  background-position: 8vw 2vw;
+  background-size: 320px;
+}
+.section1-top-left,
+.section2-top-left,
+.section3-top-left,
+.section4-top-left,
+.section5-top-left,
+.section6-top-left {
+  height: 50vh;
+}
+.section1-bottom-left,
+.section2-bottom-left,
+.section3-bottom-left,
+.section4-bottom-left,
+.section5-bottom-left,
+.section6-bottom-left {
+  height: 50vh;
+}
+.section1-top-right,
+.section2-top-right,
+.section3-top-right,
+.section4-top-right,
+.section5-top-right,
+.section6-top-right {
+  height: 10vh;
+}
+.section1-bottom-right,
+.section2-bottom-right,
+.section3-bottom-right,
+.section4-bottom-right,
+.section6-bottom-right {
+  height: 90vh;
+  margin-top: -40vh;
+}
+.section5-bottom-right {
+  height: 90vh;
+  margin-top: -45vh;
+}
+
+/*-------making it responsive-----------*/
+@media only screen and (max-width: 650px) {
+  section {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .section2-bottom-left,
+  .section3-bottom-left,
+  .section4-bottom-left,
+  .section5-bottom-left,
+  .section6-bottom-left {
+    display: none;
+  }
+  .section1-bottom-left {
+    margin-top: -35vh;
+  }
+  .section1-bottom-right {
+    margin-top: -35vh;
+  }
+
+  .section2-bottom-right,
+  .section3-bottom-right,
+  .section4-bottom-right,
+  .section6-bottom-right,
+  .section5-bottom-right {
+    margin-top: -20vh;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .section2-bottom-right,
+  .section3-bottom-right,
+  .section4-bottom-right,
+  .section6-bottom-right,
+  .section5-bottom-right {
+    margin-top: -30vh;
+  }
+  .section1-bottom-right {
+    margin-top: -35vh;
+  }
+}
+@media only screen and (max-width: 450px) {
+  section {
+    height: 130vh;
+  }
+  .section1-bottom-right {
+    margin-top: -30vh;
+  }
+  .section2-bottom-right,
+  .section3-bottom-right,
+  .section4-bottom-right,
+  .section6-bottom-right,
+  .section5-bottom-right {
+    margin-top: -40vh;
+  }
+}
+
+/*-----font styling for section------*/
+h2 {
+  font-family: GT Walsheim Pro;
+  font-weight: 700;
+  font-style: normal;
+  color: $text-color;
+  font-size: 3.5em;
+}
+p {
+  font-family: GT Walsheim Pro;
+  font-weight: 400;
+  font-style: normal;
+  color: $text-color;
+  font-size: 1em;
+}
+h3 {
+  font-family: GT Walsheim Pro;
+  font-weight: 700;
+  font-style: normal;
+  color: $text-color;
+  font-size: 1.5em;
+}
+.section1-top-left h2,
+.section2-top-left h2,
+.section3-top-left h2,
+.section4-top-left h2,
+.section5-top-left h2,
+.section6-top-left h2 {
+  margin-top: 10vw;
+  margin-left: 10vw;
+}
+
+.section2-bottom-right p,
+.section3-bottom-right p,
+.section4-bottom-right p,
+.section5-bottom-right p,
+.section6-bottom-right p,
+.section1-bottom-left p {
+  padding: 1vw 5vw 1vw 8vw;
+}
+/*----------modal styling for sections--------*/
+#modal-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: grey;
+  opacity: 0.5;
+  z-index: 100;
+}
+#modal-bg.hide {
+  display: none;
+}
+#modal-container {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+#modal-container.hide {
+  display: none;
+}
+#modal-container #modal {
+  width: 70%;
+  height: 90vh;
+  background-color: $text-color;
+  overflow: hidden;
+}
+#modal-container #modal p {
+  color: $highlight-color;
+  font-size: 1em;
+}
+#modal-container #modal .modal-text {
+  margin: 5vh;
+}
+#modal-container #modal .close {
+  margin: 1em;
+  font-size: 1em;
+  color: $highlight-color;
+  background: opacity($color: #00000000);
+  border: none;
+}
+#modal-container #modal .close:hover {
+  opacity: 0.8;
+}
+/*--------template styling------*/
+.benefit {
+  margin-left: 3vh;
+}
+.benefit:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.benefit-img img {
+  width: 5vh;
+}
+.benefit-img {
+  display: flex;
+  padding: 5vh 0vh 1vh 8vh;
+}
