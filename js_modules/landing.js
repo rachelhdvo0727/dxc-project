@@ -7,25 +7,6 @@ export function landing() {
   function startLanding() {
     document.querySelector("#scroll_box").addEventListener("scroll", scrolling);
     document.querySelector("button").addEventListener("click", showQuotes);
-    
-    document.querySelector("#signup").addEventListener("click", (evt) => {
-      signupForm();
-      signinForm();
-      document.querySelector("#form-container").style.display = "block";
-      document.querySelector("#form-container").classList.add("slide_in");
-      document.querySelector("#scroll_box").classList.add("hide");
-      document.querySelector("#dot_container").classList.add("hide");
-      document.querySelector("#signup").classList.add("hide");
-      document.querySelector(".next").classList.remove("hide");
-    });
-    document.querySelector(".back").addEventListener("click", (e) => {
-      document.querySelector("#form-container").style.display = "none";
-      document.querySelector("#scroll_box").classList.remove("hide");
-      document.querySelector("#intro_text").classList.remove("hide");
-      document.querySelector("#dot_container").classList.remove("hide");
-      document.querySelector("#signup").classList.remove("hide");
-      document.querySelector(".next").classList.add("hide");
-    });
   }
   function scrolling() {
     let scrollContainer = document.querySelector("#scroll_box");

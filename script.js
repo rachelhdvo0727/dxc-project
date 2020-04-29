@@ -11,8 +11,31 @@ window.addEventListener("DOMContentLoaded", start);
 function start() {
   console.log("start");
   landing();
-  signupForm();
+  clickSignUp();
+  clickBackOnForm();
+
   //signinForm();
   //intro();
   //sections();
+}
+function clickSignUp() {
+  document.querySelector("#signup").addEventListener("click", (evt) => {
+    document.querySelector("#form-container").style.display = "block";
+    document.querySelector("#form-container").classList.add("slide_in");
+    document.querySelector("#scroll_box").classList.add("hide");
+    document.querySelector("#dot_container").classList.add("hide");
+    document.querySelector("#signup").classList.add("hide");
+    document.querySelector(".next").classList.remove("hide");
+  });
+  signupForm();
+}
+function clickBackOnForm() {
+  document.querySelector(".back").addEventListener("click", (e) => {
+    document.querySelector("#form-container").style.display = "none";
+    document.querySelector("#scroll_box").classList.remove("hide");
+    document.querySelector("#intro_text").classList.remove("hide");
+    document.querySelector("#dot_container").classList.remove("hide");
+    document.querySelector("#signup").classList.remove("hide");
+    document.querySelector(".next").classList.add("hide");
+  });
 }
