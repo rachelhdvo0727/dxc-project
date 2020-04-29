@@ -11,13 +11,10 @@
 }
 @mixin grid-3-col {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(100%, 200px), /* min value */ 1fr /* max value */)
-  );
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), /* min value */ 1fr /* max value */));
 }
 h1 {
-  font-family: $bold-font;
+  font-family: $regular-font;
 }
 p,
 a,
@@ -69,11 +66,17 @@ section#introtext_1 {
   justify-content: space-around;
   .factors_img {
     align-self: center;
-    background: url(/static/svgs/iot-diamond-form.svg) 100%;
-    background-size: 100%;
-    height: 62vw;
-    width: 60vw;
+    justify-self: center;
+    transform: scale(1.2);
   }
+
+  // polygon:hover {
+  //   fill: $highlight-color;
+  // }
+
+  // polygon:hover ~ p.cls-4 {
+  //   fill: $highlight-color;
+  // }
 }
 
 article#intro2 {
