@@ -13,9 +13,9 @@ export function burgermenuHandler() {
       .classList.contains("hidden");
     if (menuHidden === true) {
       hideOverlay();
+      // animationBurger();
     } else {
       addOverlay();
-      disableScroll();
     }
   });
   function addOverlay() {
@@ -27,5 +27,8 @@ export function burgermenuHandler() {
     bgElms.forEach((elm) => {
       elm.classList.remove("overlay");
     });
+  }
+  function animationBurger() {
+    menuicon.classList.toggle("change");
   }
 }
