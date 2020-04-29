@@ -12,7 +12,7 @@ function start() {
   console.log("start");
   landing();
   signupForm();
-  signinForm();
-  intro();
-  sections();
+  //signinForm();
+  //intro();
+  //sections();
 }

@@ -213,7 +213,7 @@ export function signupForm() {
       method: "get",
       headers: {
         accept: "application/json",
-        "x-apiKey1": apiKey1,
+        "x-apiKey": apiKey1,
         "cache-control": "no-cache",
       },
     })
@@ -275,7 +275,7 @@ export function signupForm() {
       method: "post",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        "x-apiKey1": apiKey1,
+        "x-apiKey": apiKey1,
         "cache-control": "no-cache",
       },
       body: postData,
@@ -331,11 +331,6 @@ export function signupForm() {
     // shakeTl.to(checksvg, {
     //   x: "-=5",
     // });
-  }
-  function showDoneProcess() {
-    console.log("done sign up");
-    //hide back button at step 1
-    document.querySelector(".back").classList.add("hide");
   }
   function goToNext() {
     let getStep = document.querySelector("#main-form").dataset.step;
@@ -416,6 +411,7 @@ export function signupForm() {
     document.querySelector("#aboutCompany").classList.add("hide");
     document.querySelector("#consent-label").classList.add("hide");
     document.querySelector("#submit").classList.add("hide");
+    document.querySelector(".takemethere").classList.add("hide");
   }
 
   async function getSvg(filename, callback) {

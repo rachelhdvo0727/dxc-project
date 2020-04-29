@@ -1,8 +1,4 @@
 @use 'partials/vars';
-
-* {
-  box-sizing: border-box;
-}
 form {
   //child elm
   //align-self: center;
@@ -12,6 +8,7 @@ form {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
+  width: 100%;
 }
 label {
   cursor: pointer;
@@ -25,6 +22,10 @@ fieldset {
   flex-direction: column;
   margin: 3vw;
   border: none;
+  p.say-something {
+    padding: 3vw 0 3vw 0;
+    color: vars.$bg-color;
+  }
 }
 fieldset label,
 fieldset input {
@@ -32,22 +33,19 @@ fieldset input {
   display: flex;
   flex-direction: column;
 }
-button {
-  all: initial;
-  // display: block;
-  cursor: pointer;
-}
 .hide {
   display: none;
 }
 #form-container {
+  position: absolute;
+  top: 32vw;
+  left: 8vw;
   display: flex;
   flex-flow: column wrap;
-  // justify-content: space-around;
   background-color: black;
   max-width: 350px;
   width: 100%;
-  height: 110vw; //mobile size
+  height: 120vw; //mobile size
   button.back {
     color: vars.$bg-color;
     font-family: vars.$regular-font;
@@ -57,12 +55,15 @@ button {
   button#submit,
   button.next,
   button.takemethere {
+    position: absolute;
+    top: 71vh;
+    left: 19vw;
     font-family: vars.$bold-font;
     background-color: vars.$highlight-color;
     text-transform: uppercase;
     text-align: center;
     width: 58vw;
-    height: 7vw;
+    height: 13vw;
     padding: 0.8vw;
     align-self: center;
     font-weight: 700;
@@ -91,6 +92,10 @@ input.invalid + p {
   background-color: white;
   display: grid;
   position: relative;
+  p.say-something {
+    padding: 3vw 0 3vw 0;
+    color: vars.$bg-color;
+  }
 }
 #consent:checked::after {
   content: "\2714";

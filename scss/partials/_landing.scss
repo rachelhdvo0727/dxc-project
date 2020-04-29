@@ -1,15 +1,35 @@
 @use 'partials/vars';
-#landing_main {
+main#landing_main {
   background-color: whitesmoke;
   width: 100%;
   height: 100%;
-  //position: relative;
+  // display: flex;
+  // flex-flow: column wrap;
+  position: relative;
+  article#sign_up {
+    position: relative;
+    button#signup {
+      position: absolute;
+      width: 58vw;
+      height: 13vw;
+      font-weight: 800;
+      text-transform: uppercase;
+      top: 84vh;
+      left: 24vw;
+      text-align: center;
+      background-color: vars.$highlight-color;
+      font-family: vars.$bold-font;
+    }
+  }
 }
-
 img {
   width: 100%;
 }
-
+button {
+  all: initial;
+  // display: block;
+  cursor: pointer;
+}
 #splash_img {
   width: 750px;
   position: absolute;
@@ -78,14 +98,15 @@ img {
 }
 
 #dot_container {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   position: absolute;
   left: 60px;
   top: 290px;
 }
 
 .dot {
+  background-color: vars.$bg-desktop-color;
   width: 8px;
   height: 8px;
   border: 1px solid white;
@@ -126,7 +147,20 @@ img {
     width: 700px;
   }
 }
-
+// @media only screen and (min-width: 1000px) {
+//   article#sign_up {
+//     button#signup {
+//       width: 20vw;
+//       height: 13vw;
+//       font-weight: 800;
+//       text-transform: uppercase;
+//       top: 5vh;
+//       left: 24vw;
+//       height: 1.5vw;
+//       width: 13vw;
+//     }
+//   }
+// }
 @media only screen and (max-width: 800px) {
   #splash_img {
     width: 100vw;
