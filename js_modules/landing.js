@@ -1,8 +1,9 @@
 import { gsap } from "gsap";
+import { signupForm } from "./form";
+import { signinForm } from "./signin-form";
 require("@babel/polyfill");
 export function landing() {
   startLanding();
-
   function startLanding() {
     //document.querySelector("#scroll_box").addEventListener("scroll", scrolling);
     document.querySelector("button").addEventListener("click", showQuotes);
