@@ -1,6 +1,17 @@
 import { gsap } from "gsap";
+import { intro } from "./js_modules/intro";
+import { landing } from "./js_modules/landing";
 require("@babel/polyfill");
-export function sections() {
+
+window.addEventListener("DOMContentLoaded", start);
+
+function start() {
+  console.log("start");
+  landing();
+  intro();
+  sections();
+}
+function sections() {
   startSections();
 
   const endpoint =
@@ -13,14 +24,17 @@ export function sections() {
   }
 
   function getData() {
-    const data = fetch(endpoint, {
-      method: "get",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        "x-apikey": apiKey,
-        "cache-control": "no-cache",
-      },
-    })
+    const data = fetch(
+      "https://frontendspring20-67be.restdb.io/rest/dxc-technology?max=6",
+      {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "x-apikey": "5e95767d436377171a0c2333",
+          "cache-control": "no-cache",
+        },
+      }
+    )
       .then((e) => e.json())
       .then(handleData);
     console.log("getting data");
@@ -47,7 +61,7 @@ export function sections() {
           method: "get",
           headers: {
             "Content-Type": "application/json; charset=utf-8",
-            "x-apikey": apiKey,
+            "x-apikey": "5e95767d436377171a0c2333",
             "cache-control": "no-cache",
           },
         }

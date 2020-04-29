@@ -5,8 +5,13 @@ require("@babel/polyfill");
 export function landing() {
   startLanding();
   function startLanding() {
+<<<<<<< HEAD
     document.querySelector("#scroll_box").addEventListener("scroll", scrolling);
     document.querySelector("#signup").addEventListener("click", showQuotes);
+=======
+    //document.querySelector("#scroll_box").addEventListener("scroll", scrolling);
+    document.querySelector("button").addEventListener("click", showQuotes);
+>>>>>>> 70900e4b16c573ac47e4b9aafafddd300e69eebe
   }
   function scrolling() {
     let scrollContainer = document.querySelector("#scroll_box");
