@@ -52,14 +52,19 @@ header {
 }
 
 .change .b1 {
-  transform: rotate(-45deg) translate(-9px, 6px);
+  -webkit-transform: rotate(-45deg) translate(-8px, 8px);
+  transform: rotate(-45deg) translate(-8px, 8px);
 }
+
 .change .b2 {
   opacity: 0;
 }
+
 .change .b3 {
+  -webkit-transform: rotate(45deg) translate(-9px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
+
 .menulist {
   background-color: $bg-color;
   z-index: 7777;
