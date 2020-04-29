@@ -4,7 +4,7 @@ export function landing() {
   startLanding();
 
   function startLanding() {
-    document.querySelector("#scroll_box").addEventListener("scroll", scrolling);
+    //document.querySelector("#scroll_box").addEventListener("scroll", scrolling);
     document.querySelector("button").addEventListener("click", showQuotes);
   }
   function scrolling() {
