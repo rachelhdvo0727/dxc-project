@@ -9,7 +9,12 @@
   <body>
     <article id="form-container">
       <button class="back">◀︎ Back</button>
-      <form>
+      <svg
+        id="progress"
+        viewBox="0 0 200
+ 20"
+      ></svg>
+      <form id="main-form" data-step="1">
         <fieldset id="personal" name="personal">
           <label>
             First name
@@ -36,6 +41,7 @@
           <label>
             Country of company
             <input id="country" list="countries" name="country" required />
+            <p id="countryError"></p>
             <datalist id="countries"></datalist>
           </label>
           <label>

@@ -1,18 +1,94 @@
 import { endpoint, apiKey, form, company, consent } from "./settings";
 require("@babel/polyfill");
-let step = 1;
+// let step = 1;
 window.form = form;
 // const personal = document.querySelector("#personal input");
 
 const elements = form.elements;
 window.elements = elements;
 console.log(elements.consent.value);
-
 export function signupForm() {
-  getJson(setUp);
+  startForm();
+  function startForm() {
+    getSvg("svgs/form/progress.svg", svgProgress);
+  }
+
+  function svgProgress(svg) {
+    document.querySelector("#progress").innerHTML = svg;
+    jsonSetUp();
+  }
+
+  function jsonSetUp() {
+    getJson(setUp);
+  }
+
+  function progressbar() {
+    let step = document.querySelector("#main-form").dataset.step;
+    console.log(step);
+    if (step == 1) {
+      document.querySelector("#Layer_1 > circle.st1").setAttribute("r", "40.7");
+      document.querySelector("#Layer_1 > circle.st1").style.fill = "#ffed00";
+      document.querySelector("#Layer_1 > circle:nth-child(5)").style.fill =
+        "#818284";
+
+      document
+        .querySelector("#Layer_1 > circle:nth-child(5)")
+        .setAttribute("r", "35.9");
+      document
+        .querySelector("#Layer_1 > circle:nth-child(10)")
+        .setAttribute("r", "35.9");
+
+      document.querySelector("#nmb1").classList.remove("st3");
+      document.querySelector("#nmb2").classList.add("st3");
+      document.querySelector("#nmb3").classList.add("st3");
+      document.querySelector("#check1").classList.add("st3");
+
+      document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke =
+        "#818284";
+    }
+    if (step == 2) {
+      document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke =
+        "#ffed00";
+      document.querySelector("#Layer_1 > line:nth-child(3)").style.stroke =
+        "#818284";
+      document.querySelector("#Layer_1 > circle:nth-child(10)").style.fill =
+        "#818284";
+
+      document
+        .querySelector("#Layer_1 > circle:nth-child(5)")
+        .setAttribute("r", "40.7");
+      document.querySelector("#Layer_1 > circle:nth-child(5)").style.fill =
+        "#ffed00";
+      document.querySelector("#nmb1").classList.add("st3");
+      document.querySelector("#nmb2").classList.remove("st3");
+      document.querySelector("#nmb3").classList.add("st3");
+      document.querySelector("#check1").classList.remove("st3");
+      document.querySelector("#check2").classList.add("st3");
+      document.querySelector("#check3").classList.add("st3");
+
+      // document.querySelector("#Layer_1 > circle.st1").fill = "red";
+    }
+
+    if (step == 3) {
+      document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke =
+        "#ffed00";
+      document.querySelector("#Layer_1 > line:nth-child(3)").style.stroke =
+        "#ffed00";
+
+      document
+        .querySelector("#Layer_1 > circle:nth-child(10)")
+        .setAttribute("r", "40.7");
+      document.querySelector("#Layer_1 > circle:nth-child(10)").style.fill =
+        "#ffed00";
+
+      document.querySelector("#nmb2").classList.add("st3");
+      document.querySelector("#nmb3").classList.remove("st3");
+      document.querySelector("#check2").classList.remove("st3");
+    }
+  }
 
   function checkFieldsets() {
-    console.log(step);
+    let step = document.querySelector("#main-form").dataset.step;
     if (step == 1) {
       if (
         form.elements.firstname.checkValidity() &&
@@ -27,24 +103,13 @@ export function signupForm() {
       }
     } else if (step == 2) {
       getEmail(form.elements.email.value, doesEmailExist);
-      // if (getEmail(form.elements.email.value, doesEmailExist)) {
-      //   showError();
-      //   console.log("error");
-      // } // } else if (form.elements.company.checkValidity() && form.elements.country.checkValidity() && form.elements.email.checkValidity()) {
+    } else if (step == 3) {
+      // if (consent.checkValidity()) {
       //   console.log("valid");
-      //   console.log(company.checkValidity());
-      //   goToNext();
+      document.querySelector("#submit").addEventListener("click", submit);
       // } else {
       //   showError();
       // }
-    } else if (step == 3) {
-      if (consent.checkValidity()) {
-        console.log("valid");
-        console.log(company.checkValidity());
-        document.querySelector("#submit").addEventListener("click", submit);
-      } else {
-        showError();
-      }
     }
   }
   //TODO: process bar
@@ -53,7 +118,7 @@ export function signupForm() {
     document.querySelector("form").setAttribute("novalidate", true);
     document.querySelector(".next").addEventListener("click", (e) => {
       e.preventDefault();
-      console.log("steps" + step);
+      // console.log("steps" + step);
       console.log("submitted");
       const formElements = form.querySelectorAll("input");
 
@@ -68,7 +133,6 @@ export function signupForm() {
     document.querySelector(".back").addEventListener("click", () => {
       startAgain();
       goBack();
-      console.log(step);
     });
   }
 
@@ -90,30 +154,61 @@ export function signupForm() {
 
   function doesEmailExist(data) {
     console.log(data);
-    if (data.length > 0) {
-      console.log("error");
-      document.querySelector("#email").classList.add("invalid");
-      document.querySelector("#emailError").textContent =
-        "This e-mail address has already been used";
+
+    if (
+      getCountry(form.elements.country.value) == false ||
+      data.length > 0 ||
+      !form.elements.company.checkValidity() ||
+      !form.elements.email.checkValidity()
+    ) {
+      console.log("Is it working?");
+
+      if (!getCountry(form.elements.country.value)) {
+        console.log("country");
+        document.querySelector("#country").classList.add("invalid");
+        document.querySelector("#countryError").textContent =
+          "Please write the country in English or select from the list";
+      }
+      if (data.length > 0) {
+        console.log("email");
+        console.log("error");
+        document.querySelector("#email").classList.add("invalid");
+        document.querySelector("#emailError").textContent =
+          "This e-mail address has already been used";
+      }
+
+      if (!form.elements.email.checkValidity()) {
+        document.querySelector("#emailError").textContent =
+          "Please provide a real e-mail address";
+        showError();
+      }
     } else {
-      checkStep2();
+      goToNext();
     }
   }
   //TODO: checking country input
-  function checkStep2() {
-    if (
-      form.elements.company.checkValidity() &&
-      form.elements.country.checkValidity() &&
-      form.elements.email.checkValidity()
-    ) {
-      console.log("valid");
-      console.log(company.checkValidity());
-      goToNext();
-    } else {
-      document.querySelector("#emailError").textContent =
-        "Please provide a real e-mail address";
-      showError();
-    }
+  // function checkStep2() {
+  //   if (form.elements.company.checkValidity() && form.elements.country.checkValidity() && form.elements.email.checkValidity()) {
+  //     console.log("valid");
+  //     console.log(company.checkValidity());
+  //     goToNext();
+  //   } else {
+  //     document.querySelector("#emailError").textContent = "Please provide a real e-mail address";
+  //     showError();
+  //   }
+  // }
+
+  function getCountry(country) {
+    const array = [];
+    document.querySelectorAll("#countries option").forEach((elm) => {
+      array.push(elm.value);
+    });
+
+    return array.includes(country);
+    //   return false;
+    // } else {
+    //   return true;
+    // }
   }
 
   function getEmail(email, callback) {
@@ -150,6 +245,7 @@ export function signupForm() {
 
   function submit(e) {
     console.log("submit");
+    // document.querySelector("#check3").classList.remove("st3");
     e.preventDefault();
     if (form.checkValidity()) {
       console.log("ready");
@@ -198,11 +294,20 @@ export function signupForm() {
     document.querySelector(".back").classList.add("hide");
   }
   function goToNext() {
-    step++;
+    let getStep = document.querySelector("#main-form").dataset.step;
+    let step = parseInt(getStep);
+    console.log(step);
+    if (step == 3) {
+      step = 3;
+    } else {
+      step++;
+    }
+    document.querySelector("#main-form").dataset.step = step.toString();
     const formElements = form.querySelectorAll("input");
     document.querySelector(".next").removeEventListener("click", goToNext);
     console.log("next");
     console.log(step);
+    progressbar();
     if (step == 2) {
       document.querySelector("#personal").classList.add("hide");
       document.querySelector("#aboutCompany").classList.remove("hide");
@@ -223,7 +328,12 @@ export function signupForm() {
   }
   function goBack() {
     document.querySelector(".back").removeEventListener("click", goBack);
+    let getStep = document.querySelector("#main-form").dataset.step;
+    let step = parseInt(getStep);
     step--;
+    document.querySelector("#main-form").dataset.step = step.toString();
+    progressbar();
+    console.log(step);
     if (step === 3) {
       console.log(step);
       //show step 2
@@ -262,5 +372,11 @@ export function signupForm() {
     document.querySelector("#aboutCompany").classList.add("hide");
     document.querySelector("#consent-label").classList.add("hide");
     document.querySelector("#submit").classList.add("hide");
+  }
+
+  async function getSvg(filename, callback) {
+    let response = await fetch(filename);
+    let mySvgData = await response.text();
+    callback(mySvgData);
   }
 }
