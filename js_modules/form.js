@@ -290,10 +290,10 @@ export function signupForm() {
     document.querySelector("#submit").classList.add("hide");
     document.querySelector("#done_signup").classList.remove("hide");
     document.querySelector(".takemethere").classList.remove("hide");
-    document.querySelector(".takemethere").addEventListener("click", (e) => {
-      console.log("go to Asset page");
-      window.location.href = "./intro.html";
-    });
+    // document.querySelector(".takemethere").addEventListener("click", (e) => {
+    //   console.log("go to Asset page");
+    //   window.location.href = "./intro.html";
+    // });
     //show check mark on the progress page
     document.querySelector("#nmb2").classList.add("st3");
     document.querySelector("#nmb3").classList.add("st3");
