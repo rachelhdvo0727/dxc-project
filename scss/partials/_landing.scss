@@ -1,13 +1,13 @@
 @use 'partials/vars';
-// main#landing_main {
-//   background-color: whitesmoke;
-//   width: 10vw;
-//   height: 100vh;
-//   // display: flex;
-//   // flex-flow: column wrap;
-//   position: relative;
-//   top: 0;
-// }
+main#landing_main {
+  height: 100vh;
+  //   background-color: whitesmoke;
+  //   width: 10vw;
+  //   // display: flex;
+  //   // flex-flow: column wrap;
+  //   position: relative;
+  //   top: 0;
+}
 body {
   overflow-x: hidden;
 }
@@ -17,7 +17,6 @@ img {
 }
 button {
   all: initial;
-  // display: block;
   cursor: pointer;
 }
 
@@ -40,11 +39,11 @@ button {
   width: 500px;
   height: 410px;
   overflow: scroll;
-  padding: 30px 30px 30px 50px;
+  padding: 30px 3px 30px 30px;
+  //padding: 30px 30px 30px 50px;
   position: absolute;
   top: 150px;
   left: 60px;
-
   .quote_container {
     margin: 0 0 50px 0;
 
@@ -57,7 +56,7 @@ button {
     color: vars.$bg-desktop-color;
     font-family: vars.$regular-font;
     font-size: 1.2rem;
-    line-height: 2.5rem;
+    line-height: 1.8rem;
   }
 
   h4 {
@@ -85,7 +84,8 @@ button {
   }
 }
 article#sign_up {
-  position: relative;
+  //position: relative;
+  position: absolute;
   background-color: white;
   width: 400px;
   height: 500px;
@@ -103,6 +103,7 @@ article#sign_up {
     text-align: center;
     background-color: vars.$highlight-color;
     font-family: vars.$bold-font;
+    margin-top: 2vw;
   }
   p {
     margin: 10vw auto;
@@ -152,6 +153,7 @@ article#sign_up {
 }
 
 .slide_in {
+  z-index: 999999;
   animation: slide_in 1s 1 ease;
   animation-fill-mode: forwards;
 }
@@ -199,6 +201,17 @@ article#sign_up {
   }
   #splash_img {
     width: 80vw;
+  }
+}
+//Macbook pro's screen - desktop
+@media only screen and (min-width: 1000px) {
+  article#sign_up {
+    button#signup {
+      margin: 0;
+    }
+  }
+  #scroll_box {
+    padding: 82px 3px 30px 30px;
   }
 }
 
@@ -249,5 +262,10 @@ article#sign_up {
 
   #dot_container {
     top: 350px;
+  }
+  article#sign_up {
+    button.sign-in-link {
+      top: 50vw;
+    }
   }
 }

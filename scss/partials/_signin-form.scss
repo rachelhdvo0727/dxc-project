@@ -28,11 +28,13 @@ button {
   // left: 65vw;
   // top: 11vw;
   top: 90px;
-  left: 65.5vw;
+  left: 0;
+  //left: 65.5vw;
   display: flex;
   flex-flow: column wrap;
   background-color: black;
-  width: 400px;
+  // width: 400px;
+  width: 319px;
   height: auto;
   padding: 20px;
   button.back2 {

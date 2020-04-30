@@ -22,14 +22,20 @@ function clickSignUp() {
     document.querySelector("#sign_up").classList.add("slide_out");
     document.querySelector(".next").classList.remove("hide");
     document.querySelector(".back").classList.remove("hidden");
-
+    if (window.innerWidth <= "400") {
+      document.querySelector("#scroll_box").style.zIndex = "999";
+    }
+    //hide sign-up article after sliding out
+    let slideOutMobile = document
+      .querySelector("#sign_up")
+      .classList.contains("slide_out");
+    if (slideOutMobile && window.innerWidth < 400) {
+      document.querySelector("#sign_up").style.display = "none";
+    }
     // if (window.innerWidth < "950") {
     //   document.querySelector("#scroll_box").style.top = "600px";
     //   document.querySelector("#dot_container").style.top = "800px";
     // }
-    if (window.innerWidth <= "400") {
-      document.querySelector("#scroll_box").style.zIndex = "999";
-    }
   });
   signupForm();
 }
