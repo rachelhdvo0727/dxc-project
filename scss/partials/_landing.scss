@@ -55,13 +55,13 @@ button {
   }
   p {
     color: vars.$bg-desktop-color;
-    font-family: GT Walsheim Pro;
+    font-family: vars.$regular-font;
     font-size: 1.2rem;
     line-height: 2.5rem;
   }
 
   h4 {
-    font-family: GT Walsheim Pro;
+    font-family: vars.$regular-font;
     font-size: 1.8rem;
     line-height: 2.5rem;
     font-weight: 100;
@@ -75,7 +75,7 @@ button {
   }
 
   h6 {
-    font-family: GT Walsheim Pro;
+    font-family: vars.$regular-font;
     text-align: right;
     font-weight: 100;
     font-size: 0.8rem;

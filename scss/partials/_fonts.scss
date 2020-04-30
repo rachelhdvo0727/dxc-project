@@ -4,21 +4,26 @@
   src: url("font/GTWalsheimProRegular.woff2") format("woff2"),
     url("font/GTWalsheimProRegular.woff") format("woff"),
     url("font/GTWalsheimProRegular.ttf") format("truetype"),
+    url("font/GTWalsheimProRegularRegular.eot"),
     url("font/GTWalsheimProRegularRegular.eot?#iefix")
       format("embedded-opentype"),
+    url("font/GTWalsheimProRegularRegular.otf") format("opentype"),
     url("font/GTWalsheimProRegularRegular.svg") format("svg");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "GT Walsheim Pro";
+  font-family: "GT Walsheim Pro Bold";
   // src: local("GT Walsheim Pro Bold"), local("GTWalsheimProBold"),
   src: url("font/GTWalsheimProBold.woff2") format("woff2"),
     url("font/GTWalsheimProBold.woff") format("woff"),
     url("font/GTWalsheimProBold.ttf") format("truetype"),
+    url("font/GTWalsheimProBold.otf") format("opentype"),
+    url("font/GTWalsheimProBold.eot"),
     url("font/GTWalsheimProBold.eot?#iefix") format("embedded-opentype"),
     url("font/GTWalsheimProBold.svg") format("svg");
+  // font-weight: 700;
   font-weight: 700;
   font-style: normal;
 }
