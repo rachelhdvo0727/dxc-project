@@ -26,6 +26,7 @@ html {
 #text-sections {
   display: flex;
   flex-direction: column;
+  padding-top: 10vw;
 }
 
 #text-sections section {
@@ -183,22 +184,19 @@ html {
 
 /*-----font styling for section------*/
 .sections-main h2 {
-  font-family: GT Walsheim Pro;
-  font-weight: 700;
+  font-family: $bold-font;
   font-style: normal;
   color: $text-color;
   font-size: 3.5em;
 }
 .sections-main p {
-  font-family: GT Walsheim Pro;
-  font-weight: 400;
+  font-family: $regular-font;
   font-style: normal;
   color: $text-color;
   font-size: 1em;
 }
 .sections-main h3 {
-  font-family: GT Walsheim Pro;
-  font-weight: 700;
+  font-family: $bold-font;
   font-style: normal;
   color: $text-color;
   font-size: 1.5em;

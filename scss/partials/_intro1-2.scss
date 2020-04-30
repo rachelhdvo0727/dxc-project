@@ -38,13 +38,13 @@ article#intro1 {
   @include column-flex;
   button.readmore {
     position: absolute;
-    top: 168vw;
-    right: 14vw;
+    top: 166vw;
+    right: 7vw;
     padding-left: 0;
     font-size: 4vw;
     background-color: $highlight-color;
     font-family: $regular-font;
-    padding: 1rem;
+    padding: 0.8rem;
   }
 }
 section#introtext_1 {
@@ -162,14 +162,15 @@ article#intro2 {
     button.readmore {
       font-size: 1.2vw;
       top: 42vw;
-      right: 13vw;
+      right: 9vw;
       background-color: $highlight-color;
       font-family: $regular-font;
       padding: 1rem;
     }
   }
   article#intro2 {
-    margin-top: 50vw;
+    margin-top: 52vw;
+    padding-top: 5vw;
     background-size: 55%;
     background-position: 0% 100%;
     section#introtext_2 {
