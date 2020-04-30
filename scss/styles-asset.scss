@@ -19,3 +19,27 @@ body {
 footer {
   position: relative;
 }
+
+#redirect {
+  width: 50vw;
+  background-color: white;
+  z-index: 10000;
+  left: 25vw;
+  top: 10vh;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid;
+  position: fixed;
+  // align-items: center;
+}
+
+#redirect section {
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.hidePopup {
+  display: none;
+}

@@ -65,6 +65,20 @@ button {
   }
 }
 
+.invalid {
+  border: 2px solid vars.$highlight-color;
+}
+
+input + p {
+  display: none;
+  color: vars.$highlight-color;
+}
+
+input.invalid + p {
+  display: block;
+  font-size: 1rem;
+}
+
 @media only screen and (min-width: 1000px) {
   #form-container2 {
     left: 65.5vw;
