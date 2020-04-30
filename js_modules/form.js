@@ -228,6 +228,8 @@ export function signupForm() {
         country: form.elements.country.value,
         workemail: form.elements.email.value,
       });
+      localStorage.setItem("firstname", form.elements.firstname.value);
+      localStorage.setItem("email", form.elements.email.value);
     } else {
       showError();
     }

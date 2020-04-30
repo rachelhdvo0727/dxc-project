@@ -56,15 +56,19 @@ button {
     font-weight: 700;
   }
 }
-#welcomeback {
-  place-self: center;
-  p.welcomeback_text {
-    color: vars.$bg-color;
-    font-family: vars.$regular-font;
-    font-size: 8vw;
-    margin-top: 43vw;
-    place-self: center;
-  }
+
+.invalid {
+  border: 2px solid vars.$highlight-color;
+}
+
+input + p {
+  display: none;
+  color: vars.$highlight-color;
+}
+
+input.invalid + p {
+  display: block;
+  font-size: 1rem;
 }
 
 @media only screen and (min-width: 1000px) {
