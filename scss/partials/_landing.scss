@@ -84,7 +84,39 @@ button {
     color: white;
   }
 }
-
+article#sign_up {
+  position: relative;
+  background-color: white;
+  width: 400px;
+  height: 500px;
+  padding: 20px;
+  top: 90px;
+  left: 65.5vw; //before 55vw
+  button#signup {
+    cursor: pointer;
+    position: absolute;
+    left: 7vw;
+    width: 200px;
+    height: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: vars.$highlight-color;
+    font-family: vars.$bold-font;
+  }
+  p {
+    margin: 10vw auto;
+  }
+  button.sign-in-link {
+    color: vars.$text-color;
+    font-family: vars.$regular-font;
+    place-self: center;
+    text-decoration: underline;
+    position: absolute;
+    top: 28vw;
+    left: 9vw;
+  }
+}
 #scroll_box::-webkit-scrollbar {
   display: none;
 }
@@ -181,6 +213,21 @@ button {
     top: 10px;
     left: 10px;
   }
+  article#sign_up {
+    left: 0;
+    width: 100%;
+    top: 600px;
+    height: 200px;
+    p {
+      margin: 2vw auto;
+    }
+    button.sign-in-link {
+      position: absolute;
+      top: 28vw;
+      left: 9vw;
+      text-decoration: underline;
+    }
+  }
 
   #scroll_box {
     width: 100vw;
@@ -197,6 +244,7 @@ button {
 @media only screen and (max-width: 600px) {
   #scroll_box {
     top: 200px;
+    // z-index: 999;
   }
 
   #dot_container {

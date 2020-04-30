@@ -418,7 +418,7 @@ export function signupForm() {
   function regretAndStopSignUp() {
     document.querySelector("#form-container").style.display = "none";
     document.querySelector("#sign_up").classList.remove("slide_out");
-    //     document.querySelector(".next").classList.add("hide");
+    //     document.querySelector("#scroll_box").classList.remove("");
   }
   async function getSvg(filename, callback) {
     let response = await fetch(filename);

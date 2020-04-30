@@ -21,40 +21,6 @@ label {
   }
 }
 
-article#sign_up {
-  position: relative;
-  background-color: white;
-  width: 400px;
-  height: 500px;
-  padding: 20px;
-  top: 90px;
-  left: 65.5vw; //before 55vw
-  button#signup {
-    cursor: pointer;
-    position: absolute;
-    left: 7vw;
-    width: 200px;
-    height: 50px;
-    font-weight: 800;
-    text-transform: uppercase;
-    text-align: center;
-    background-color: vars.$highlight-color;
-    font-family: vars.$bold-font;
-  }
-  p {
-    margin: 10vw auto;
-  }
-  button.sign-in-link {
-    color: vars.$text-color;
-    font-family: vars.$regular-font;
-    place-self: center;
-    text-decoration: underline;
-    position: absolute;
-    top: 28vw;
-    left: 9vw;
-  }
-}
-
 input {
   height: 2.5vw;
 }
@@ -80,7 +46,7 @@ fieldset input {
 }
 #form-container {
   position: absolute;
-  top: 90px;
+  top: 70px;
   left: 65.5vw;
   display: flex;
   flex-flow: column wrap;
@@ -185,7 +151,7 @@ input.invalid + p {
 
 @media only screen and (max-width: 1050px) {
   #form-container {
-    top: 100px;
+    top: 73px; //before 100px
     left: 50vw;
   }
   input {
@@ -198,6 +164,7 @@ input.invalid + p {
     top: 200px;
     left: 0;
     width: 100%;
+    height: 500px;
     button.back {
       padding: 0 0 0 0;
     }
@@ -209,21 +176,17 @@ input.invalid + p {
       width: 36vw; //20vw before
     }
   }
-
-  article#sign_up {
-    left: 0;
-    width: 100%;
-    top: 600px;
-    button.sign-in-link {
-      position: absolute;
-      top: 28vw;
-      left: 9vw;
-      text-decoration: underline;
+  fieldset {
+    p.say-something {
+      font-size: 4vw;
     }
   }
-
   input {
     height: 4vh;
+  }
+  input.invalid + p {
+    display: block;
+    font-size: 3vw;
   }
 }
 
