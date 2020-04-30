@@ -29,8 +29,12 @@ function clickSignUp() {
     let slideOutMobile = document
       .querySelector("#sign_up")
       .classList.contains("slide_out");
-    if (slideOutMobile && window.innerWidth < 400) {
+    let formshown = document
+      .querySelector("#form-container")
+      .classList.contains("hidden");
+    if (slideOutMobile && window.innerWidth < 400 && formshown === false) {
       document.querySelector("#sign_up").style.display = "none";
+      // document.body.style.overflowX = "hidden";
     }
     // if (window.innerWidth < "950") {
     //   document.querySelector("#scroll_box").style.top = "600px";
