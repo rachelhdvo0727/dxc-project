@@ -1,6 +1,9 @@
 @use 'partials/fonts';
 @use 'partials/vars' as *;
 
+button.readmore {
+  cursor: pointer;
+}
 @mixin column-flex {
   display: flex;
   flex-flow: column wrap;
@@ -36,6 +39,9 @@ article#intro1 {
     right: 14vw;
     padding-left: 0;
     font-size: 4vw;
+    background-color: $highlight-color;
+    font-family: $regular-font;
+    padding: 1rem;
   }
 }
 section#introtext_1 {
@@ -70,13 +76,13 @@ section#introtext_1 {
     transform: scale(1.2);
   }
 
-  polygon {
-    cursor: pointer;
-  }
+  // polygon {
+  //   cursor: pointer;
+  // }
 
-  .factors_img g {
-    cursor: pointer;
-  }
+  // .factors_img g {
+  //   cursor: pointer;
+  // }
   // polygon:hover ~ p.cls-4 {
   //   fill: $highlight-color;
   // }
@@ -152,8 +158,11 @@ article#intro2 {
     }
     button.readmore {
       font-size: 1.2vw;
-      top: 45vw;
-      right: 9vw;
+      top: 42vw;
+      right: 13vw;
+      background-color: $highlight-color;
+      font-family: $regular-font;
+      padding: 1rem;
     }
   }
   article#intro2 {

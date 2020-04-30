@@ -16,64 +16,79 @@ function start() {
 function placeSVG(svg) {
   console.log("placeSvg");
   document.querySelector(".factors_img").innerHTML = svg;
-  document.querySelectorAll(".factors_img polygon").forEach((elm) => {
-    elm.addEventListener("mouseover", mouseOverPoly);
-    elm.addEventListener("mouseout", mouseOutPoly);
-  });
-
-  document.querySelectorAll(".factors_img g").forEach((elm) => {
-    elm.addEventListener("mouseover", mouseOverG);
-    elm.addEventListener("mouseout", mouseOutG);
-  });
-}
-
-function mouseOverPoly(e) {
-  if (e.target.id == "poly0") {
-  } else {
-    e.target.style.fill = "#ffed00";
-    // document.querySelector(`#${e.target.id}-2`).style.stroke = "#000000";
-    document.querySelector(`#${e.target.id}-2`).style.stroke = "#000000";
-  }
-}
-
-function mouseOutPoly(e) {
-  if (e.target.id == "poly0") {
-  } else {
-    e.target.style.fill = "#000000";
-    document.querySelector(`#${e.target.id}-2`).style.stroke = "#ffffff";
-  }
-}
-
-function mouseOverG(e) {
-  const group = e.target.parentNode.id;
-  console.log(group);
-  let polyId = group.slice(0, group.length - 2);
-  console.log(e.target.parentNode.id);
-  // document.querySelectorAll(`#${parentNode.id}`).forEach((elm) => {
-  //   elm.style.fill = "#000000";
+  document.querySelector(".readmore").addEventListener("click", readMore);
+  // document.querySelectorAll(".factors_img polygon").forEach((elm) => {
+  //   elm.addEventListener("mouseover", mouseOverPoly);
+  //   elm.addEventListener("mouseout", mouseOutPoly);
   // });
-  // document.querySelector(`#${e.target.parentNode.id}`).style.stroke = "#000000";
-  if (polyId == "poly0") {
-  } else {
-    document.querySelector(`#${e.target.parentNode.id}`).style.stroke = "#000000";
-    console.log(e.target.parentNode.id.slice(0, e.target.parentNode.id.length - 2));
 
-    console.log(polyId);
-    document.querySelector(`#${polyId}`).style.fill = "#ffed00";
-  }
+  // document.querySelectorAll(".factors_img g").forEach((elm) => {
+  //   elm.addEventListener("mouseover", mouseOverG);
+  //   elm.addEventListener("mouseout", mouseOutG);
+  //   // elm.addEventListener("click", clickSVG);
+  // });
 }
 
-function mouseOutG(e) {
-  let polyId = e.target.parentNode.id.slice(0, e.target.parentNode.id.length - 2);
-  if (polyId == "poly0") {
-  } else {
-    document.querySelector(`#${e.target.parentNode.id}`).style.stroke = "#ffffff";
-    document.querySelector(`#${e.target.parentNode.id}`).style.fill = "#fffff";
-
-    console.log(polyId);
-    document.querySelector(`#${polyId}`).style.fill = "#000000";
-  }
+function readMore() {
+  console.log("readMore");
+  window.scrollTo(0, document.querySelector("#introtext_2").offsetTop);
 }
+
+// function clickSVG(e) {
+//   let polyId = e.target.id.slice(e.target.id.length);
+//   console.log(polyId);
+
+//   location.hash == `section${polyId}`;
+//   // window.scrollTo(0, document.querySelector(`.section-${polyId}`).offsetTop);
+// }
+// function mouseOverPoly(e) {
+//   if (e.target.id == "poly0") {
+//   } else {
+//     e.target.style.fill = "#ffed00";
+//     // document.querySelector(`#${e.target.id}-2`).style.stroke = "#000000";
+//     document.querySelector(`#${e.target.id}-2`).style.stroke = "#000000";
+//   }
+// }
+
+// function mouseOutPoly(e) {
+//   console.log("mouseOut Poly");
+//   if (e.target.id == "poly0") {
+//   } else {
+//     e.target.style.fill = "#000000";
+//     document.querySelector(`#${e.target.id}-2`).style.stroke = "#ffffff";
+//   }
+// }
+
+// function mouseOverG(e) {
+//   const group = e.target.parentNode.id;
+//   console.log(group);
+//   let polyId = group.slice(0, group.length - 2);
+//   console.log(e.target.parentNode.id);
+//   // document.querySelectorAll(`#${parentNode.id}`).forEach((elm) => {
+//   //   elm.style.fill = "#000000";
+//   // });
+//   // document.querySelector(`#${e.target.parentNode.id}`).style.stroke = "#000000";
+//   if (polyId == "poly0") {
+//   } else {
+//     document.querySelector(`#${e.target.parentNode.id}`).style.stroke = "#000000";
+//     console.log(e.target.parentNode.id.slice(0, e.target.parentNode.id.length - 2));
+
+//     console.log(polyId);
+//     document.querySelector(`#${polyId}`).style.fill = "#ffed00";
+//   }
+// }
+
+// function mouseOutG(e) {
+//   let polyId = e.target.parentNode.id.slice(0, e.target.parentNode.id.length - 2);
+//   if (polyId == "poly0") {
+//   } else {
+//     document.querySelector(`#${e.target.parentNode.id}`).style.stroke = "#ffffff";
+//     document.querySelector(`#${e.target.parentNode.id}`).style.fill = "#fffff";
+
+//     console.log(polyId);
+//     document.querySelector(`#${polyId}`).style.fill = "#000000";
+//   }
+// }
 async function getSvg(filename, callback) {
   let response = await fetch(filename);
   let mySvgData = await response.text();
