@@ -95,6 +95,7 @@ article#sign_up {
     cursor: pointer;
     position: absolute;
     left: 7vw;
+    bottom: 25vh;
     width: 200px;
     height: 50px;
     font-weight: 800;
@@ -260,6 +261,10 @@ article#sign_up {
 }
 
 @media only screen and (max-width: 600px) {
+  button#signup {
+    //       margin: 0;
+    top: 10vh;
+  }
   #scroll_box {
     top: 200px;
     // z-index: 999;
