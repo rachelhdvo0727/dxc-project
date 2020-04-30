@@ -8,10 +8,32 @@ window.addEventListener("DOMContentLoaded", start);
 function start() {
   console.log("start");
   // landing();
-  intro();
-  sections();
-  getSvg("svgs/sixfactors.svg", placeSVG);
+
+  if (localStorage.getItem("email")) {
+    intro();
+    sections();
+    getSvg("svgs/sixfactors.svg", placeSVG);
+    document.querySelector("#redirect").style.display = "none";
+  } else {
+    console.log("not email!");
+    intro();
+    addBlur();
+
+    // window.location.href = "index.html";
+  }
 }
+
+function addBlur() {
+  document.querySelectorAll("main, header").forEach((elm) => {
+    elm.classList.add("overlay");
+  });
+  document.querySelector("body").style.overflow = "hidden";
+}
+// function hideBlur() {
+//   document.querySelectorAll("article, #logo").forEach((elm) => {
+//     elm.classList.remove("overlay");
+//   });
+// }
 
 function placeSVG(svg) {
   console.log("placeSvg");
