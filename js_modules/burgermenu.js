@@ -4,7 +4,7 @@ export function burgermenuHandler() {
 
   let menulist = document.querySelector(".menulist");
   const bgElms = document.querySelectorAll("article, #logo");
-  const menuicon = document.querySelector("#burger_icon");
+  const menuicon = document.querySelector("#menu_container");
 
   menuicon.addEventListener("click", toggleMenu);
   document.querySelectorAll(".menulist a").forEach((elm) => {
@@ -12,8 +12,9 @@ export function burgermenuHandler() {
   });
 
   function toggleMenu() {
-    menulist.classList.toggle("hidden");
-    let menuHidden = document.querySelector(".menulist").classList.contains("hidden");
+    console.log("Toggle");
+    document.querySelector("#menu").classList.toggle("hidden");
+    let menuHidden = document.querySelector("#menu").classList.contains("hidden");
     if (menuHidden === true) {
       hideOverlay();
       menuicon.classList.remove("change");
