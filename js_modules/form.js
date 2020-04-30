@@ -292,7 +292,7 @@ export function signupForm() {
     document.querySelector(".takemethere").classList.remove("hide");
     document.querySelector(".takemethere").addEventListener("click", (e) => {
       console.log("go to Asset page");
-      location.href = "intro.html";
+      window.location.href = "./intro.html";
     });
     //show check mark on the progress page
     document.querySelector("#nmb2").classList.add("st3");
