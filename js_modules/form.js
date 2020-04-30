@@ -25,37 +25,25 @@ export function signupForm() {
     if (step == 1) {
       document.querySelector("#Layer_1 > circle.st1").setAttribute("r", "40.7");
       document.querySelector("#Layer_1 > circle.st1").style.fill = "#ffed00";
-      document.querySelector("#Layer_1 > circle:nth-child(5)").style.fill =
-        "#818284";
+      document.querySelector("#Layer_1 > circle:nth-child(5)").style.fill = "#818284";
 
-      document
-        .querySelector("#Layer_1 > circle:nth-child(5)")
-        .setAttribute("r", "35.9");
-      document
-        .querySelector("#Layer_1 > circle:nth-child(10)")
-        .setAttribute("r", "35.9");
+      document.querySelector("#Layer_1 > circle:nth-child(5)").setAttribute("r", "35.9");
+      document.querySelector("#Layer_1 > circle:nth-child(10)").setAttribute("r", "35.9");
 
       document.querySelector("#nmb1").classList.remove("st3");
       document.querySelector("#nmb2").classList.add("st3");
       document.querySelector("#nmb3").classList.add("st3");
       document.querySelector("#check1").classList.add("st3");
 
-      document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke =
-        "#818284";
+      document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke = "#818284";
     }
     if (step == 2) {
-      document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke =
-        "#ffed00";
-      document.querySelector("#Layer_1 > line:nth-child(3)").style.stroke =
-        "#818284";
-      document.querySelector("#Layer_1 > circle:nth-child(10)").style.fill =
-        "#818284";
+      document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke = "#ffed00";
+      document.querySelector("#Layer_1 > line:nth-child(3)").style.stroke = "#818284";
+      document.querySelector("#Layer_1 > circle:nth-child(10)").style.fill = "#818284";
 
-      document
-        .querySelector("#Layer_1 > circle:nth-child(5)")
-        .setAttribute("r", "40.7");
-      document.querySelector("#Layer_1 > circle:nth-child(5)").style.fill =
-        "#ffed00";
+      document.querySelector("#Layer_1 > circle:nth-child(5)").setAttribute("r", "40.7");
+      document.querySelector("#Layer_1 > circle:nth-child(5)").style.fill = "#ffed00";
       document.querySelector("#nmb1").classList.add("st3");
       document.querySelector("#nmb2").classList.remove("st3");
       document.querySelector("#nmb3").classList.add("st3");
@@ -67,16 +55,11 @@ export function signupForm() {
     }
 
     if (step == 3) {
-      document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke =
-        "#ffed00";
-      document.querySelector("#Layer_1 > line:nth-child(3)").style.stroke =
-        "#ffed00";
+      document.querySelector("#Layer_1 > line:nth-child(2)").style.stroke = "#ffed00";
+      document.querySelector("#Layer_1 > line:nth-child(3)").style.stroke = "#ffed00";
 
-      document
-        .querySelector("#Layer_1 > circle:nth-child(10)")
-        .setAttribute("r", "40.7");
-      document.querySelector("#Layer_1 > circle:nth-child(10)").style.fill =
-        "#ffed00";
+      document.querySelector("#Layer_1 > circle:nth-child(10)").setAttribute("r", "40.7");
+      document.querySelector("#Layer_1 > circle:nth-child(10)").style.fill = "#ffed00";
 
       document.querySelector("#nmb2").classList.add("st3");
       document.querySelector("#nmb3").classList.remove("st3");
@@ -87,11 +70,7 @@ export function signupForm() {
   function checkFieldsets() {
     let step = document.querySelector("#main-form").dataset.step;
     if (step == 1) {
-      if (
-        form.elements.firstname.checkValidity() &&
-        form.elements.lastname.checkValidity() &&
-        form.elements.jobtitle.checkValidity()
-      ) {
+      if (form.elements.firstname.checkValidity() && form.elements.lastname.checkValidity() && form.elements.jobtitle.checkValidity()) {
         console.log("valid");
         console.log(personal.checkValidity());
         goToNext();
@@ -110,6 +89,8 @@ export function signupForm() {
     }
   }
   function setUp(data) {
+    document.querySelector(".back").addEventListener("click", backHandler);
+
     data.forEach(showCountry);
     document.querySelector("form").setAttribute("novalidate", true);
     document.querySelector(".next").addEventListener("click", (e) => {
@@ -126,10 +107,12 @@ export function signupForm() {
       });
       checkFieldsets();
     });
-    document.querySelector(".back").addEventListener("click", () => {
-      startAgain();
-      goBack();
-    });
+  }
+
+  function backHandler() {
+    console.log("goBack");
+    // startAgain();
+    goBack();
   }
 
   function showCountry(data) {
@@ -151,31 +134,23 @@ export function signupForm() {
   function doesEmailExist(data) {
     console.log(data);
 
-    if (
-      getCountry(form.elements.country.value) == false ||
-      data.length > 0 ||
-      !form.elements.company.checkValidity() ||
-      !form.elements.email.checkValidity()
-    ) {
+    if (getCountry(form.elements.country.value) == false || data.length > 0 || !form.elements.company.checkValidity() || !form.elements.email.checkValidity()) {
       console.log("Is it working?");
 
       if (!getCountry(form.elements.country.value)) {
         console.log("country");
         document.querySelector("#country").classList.add("invalid");
-        document.querySelector("#countryError").textContent =
-          "Please write the country in English or select from the list";
+        document.querySelector("#countryError").textContent = "Please write the country in English or select from the list";
       }
       if (data.length > 0) {
         console.log("email");
         console.log("error");
         document.querySelector("#email").classList.add("invalid");
-        document.querySelector("#emailError").textContent =
-          "This e-mail address has already been used";
+        document.querySelector("#emailError").textContent = "This e-mail address has already been used";
       }
 
       if (!form.elements.email.checkValidity()) {
-        document.querySelector("#emailError").textContent =
-          "Please provide a real e-mail address";
+        document.querySelector("#emailError").textContent = "Please provide a real e-mail address";
         showError();
       }
     } else {
@@ -308,10 +283,7 @@ export function signupForm() {
     document.querySelector(".svg").innerHTML = mySVG;
   }
   function useSvg() {
-    let checkSvg = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "use"
-    );
+    let checkSvg = document.createElementNS("http://www.w3.org/2000/svg", "use");
     checkSvg.setAttribute("href", "#yellowCheckedDone");
     checkSvg.setAttribute("height", "150px");
     checkSvg.setAttribute("width", "150px");
@@ -388,19 +360,23 @@ export function signupForm() {
       document.querySelector("#submit").classList.add("hide");
       document.querySelector("#personal").classList.add("hide");
       //while at step 2, click back
-      document.querySelector(".back").addEventListener("click", () => {
-        if (step === 1) {
-          console.log(step);
-          startAgain();
-        }
-      });
+      // document.querySelector(".back").addEventListener("click", () => {
+      //   if (step === 1) {
+      //     console.log(step);
+      //     startAgain();
+      //   }
+      // });
     }
     //go back to landing
+
+    if (step === 0) {
+      window.location.reload();
+    }
     let personalsection = document.querySelector("#personal");
     if (step === 0 || step === 1 || personalsection || startAgain()) {
       document.querySelector(".back").addEventListener("click", () => {
         console.log(step);
-        regretAndStopSignUp();
+        window.location.reload();
       });
     }
   }

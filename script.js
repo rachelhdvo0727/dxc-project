@@ -40,6 +40,11 @@ function clickSignIn() {
     document.querySelector("#sign_up").classList.add("slide_out");
     document.querySelector(".back2").classList.remove("hidden");
     document.querySelector("#submit2").classList.remove("hidden");
+    document.querySelector(".back2").addEventListener("click", goBackToLanding);
   });
   signinForm();
+}
+
+function goBackToLanding() {
+  window.location.reload();
 }

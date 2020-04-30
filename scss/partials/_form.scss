@@ -44,6 +44,7 @@ fieldset input {
 .hide {
   display: none;
 }
+
 #form-container {
   position: absolute;
   top: 70px;
@@ -63,7 +64,7 @@ fieldset input {
   }
   button#submit,
   button.next,
-  button.takemethere {
+  .takemethere {
     // position: absolute;
     // top: 500px;
     // left: 19vw;
@@ -77,6 +78,15 @@ fieldset input {
     padding: 0.8vw;
     align-self: center;
     font-weight: 700;
+  }
+
+  .takemethere {
+    color: #000000;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    text-decoration: none;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
   }
 }
 .invalid {
@@ -131,7 +141,7 @@ input.invalid + p {
 #form-container {
   button.next,
   button#submit,
-  button.takemethere {
+  .takemethere {
     height: 1.5vw;
     width: 13vw;
   }
@@ -171,7 +181,7 @@ input.invalid + p {
     button.next,
     button#submit,
     button#submit2,
-    button.takemethere {
+    .takemethere {
       height: 5vw;
       width: 36vw; //20vw before
     }
