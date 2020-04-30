@@ -14,7 +14,10 @@ button.readmore {
 }
 @mixin grid-3-col {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), /* min value */ 1fr /* max value */));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 200px), /* min value */ 1fr /* max value */)
+  );
 }
 h1 {
   font-family: $regular-font;
@@ -171,7 +174,7 @@ article#intro2 {
     background-position: 0% 100%;
     section#introtext_2 {
       gap: 1.5vw;
-      margin: 16vw 9.5vw 6vw;
+      margin: 16vw 9.5vw 8vw; //before 6vw
       padding: 7vw 2vw 2vw;
       line-height: 2vw;
       p {
